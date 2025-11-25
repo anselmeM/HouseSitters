@@ -1,47 +1,44 @@
 gsap.registerPlugin(ScrollTrigger);
 
 // Animate the header on page load
-gsap.from('.header-area', {
+gsap.from('header', {
     duration: 1,
     y: '-100%',
     opacity: 0,
     ease: 'power3.out'
 });
 
-// Animate the main content sections
-gsap.from('.tfc-area .row > div', {
+// Animate the main page heading
+gsap.from('h1', {
     duration: 1,
-    y: 100,
+    x: -50,
     opacity: 0,
-    stagger: 0.2,
+    delay: 0.2,
+    ease: 'power3.out'
+});
+
+// Animate the filtering sidebar
+gsap.from('aside', {
+    duration: 1,
+    x: -100,
+    opacity: 0,
+    delay: 0.4,
     ease: 'power3.out',
     scrollTrigger: {
-        trigger: '.tfc-area',
-        start: 'top 80%',
+        trigger: 'aside',
+        start: 'top 85%',
     }
 });
 
-gsap.from('.wos-area .wos-part', {
-    duration: 1,
+// Animate the product cards with a stagger effect
+gsap.from('.grid .group', {
+    duration: 0.8,
     y: 100,
     opacity: 0,
-    stagger: 0.2,
+    stagger: 0.15,
     ease: 'power3.out',
     scrollTrigger: {
-        trigger: '.wos-area',
+        trigger: '.grid',
         start: 'top 80%',
-    }
-});
-
-// Animate the scrolltotop button
-gsap.to('.scrolltotop', {
-    duration: 0.5,
-    opacity: 1,
-    y: 0,
-    ease: 'power3.out',
-    scrollTrigger: {
-        trigger: 'body',
-        start: 'top -20%',
-        toggleActions: 'play none none reverse'
     }
 });

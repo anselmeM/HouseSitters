@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FurniDecor - Product Listing</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#E2725B",
+            "background-light": "#F5F5DC",
+            "background-dark": "#111921",
+            "text-light": "#333333",
+            "text-dark": "#E5E7EB",
+            "text-secondary-light": "#6b7280",
+            "text-secondary-dark": "#9ca3af",
+            "surface-light": "#FFFFFF",
+            "surface-dark": "#1F2937",
+            "border-light": "#e5e7eb",
+            "border-dark": "#374151"
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-6 md:px-10 py-3 bg-surface-light dark:bg-surface-dark sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-text-light dark:text-text-dark">
+<span class="material-symbols-outlined text-2xl text-primary">chair</span>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">FurniDecor</h2>
+</div>
+<nav class="hidden lg:flex items-center gap-9">
+<a class="text-sm font-medium leading-normal hover:text-primary" href="#">Shop</a>
+<a class="text-sm font-medium leading-normal hover:text-primary" href="#">Living Room</a>
+<a class="text-sm font-medium leading-normal hover:text-primary" href="#">Bedroom</a>
+<a class="text-sm font-medium leading-normal hover:text-primary" href="#">Dining</a>
+<a class="text-sm font-medium leading-normal hover:text-primary" href="#">Decor</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-secondary-light dark:text-text-secondary-dark">search</span>
+<input class="form-input w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-background-light dark:bg-background-dark h-10 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark pl-10 pr-4 text-sm" placeholder="Search" value=""/>
+</div>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 hover:bg-gray-200 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 hover:bg-gray-200 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA0hTaWQdAQC2vIAkDzoSXO_ZdVLMxa_jIliH7h2vpOl-Zck32DmAkQCMvQmELq2c0LN3mE6WUJrJtVt9z_AemO6y6Xu6UAh0tHHuHrcwVnA5Y_JP5Ov2QIfnwMROo7QeoDaHEOyScuO14p5pq2hV-wPL9at2HTrVzdt8L2YL_ERzbeYKqe6r6QCFf6T9P9MrxiARVb2zIrnN8f5yWqh0UTw2YNc4DTaoObHoU6ShxwAVXzTLF6ucVl7CPNgyWb9burvWabIj6cWimI");'></div>
+</div>
+</header>
+<main class="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<!-- Breadcrumbs & Page Heading -->
+<div class="mb-8">
+<div class="flex flex-wrap gap-2 text-sm">
+<a class="text-text-secondary-light dark:text-text-secondary-dark hover:text-primary" href="#">Home</a>
+<span class="text-text-secondary-light dark:text-text-secondary-dark">/</span>
+<a class="text-text-secondary-light dark:text-text-secondary-dark hover:text-primary" href="#">Living Room</a>
+<span class="text-text-secondary-light dark:text-text-secondary-dark">/</span>
+<span class="text-text-light dark:text-text-dark font-medium">Sofas</span>
+</div>
+<div class="flex flex-wrap justify-between items-baseline gap-3 mt-4">
+<h1 class="text-4xl font-black leading-tight tracking-[-0.033em]">Living Room Sofas</h1>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+<!-- Filtering Sidebar (Left Panel) -->
+<aside class="lg:col-span-1 bg-surface-light dark:bg-surface-dark p-6 rounded-lg self-start sticky top-24">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-xl font-bold">Filters</h2>
+<button class="text-sm font-medium text-primary hover:underline">Clear All</button>
+</div>
+<div class="flex flex-col space-y-4">
+<!-- Accordions for filters -->
+<div class="flex flex-col">
+<details class="flex flex-col border-t border-border-light dark:border-border-dark py-2 group" open="">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-2">
+<p class="text-sm font-medium">Category</p>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="flex flex-col gap-2 pt-2 text-text-secondary-light dark:text-text-secondary-dark text-sm">
+<label class="flex items-center gap-2 cursor-pointer"><input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/>Sofas</label>
+<label class="flex items-center gap-2 cursor-pointer"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/>Sectionals</label>
+<label class="flex items-center gap-2 cursor-pointer"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/>Loveseats</label>
+<label class="flex items-center gap-2 cursor-pointer"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/>Sleeper Sofas</label>
+</div>
+</details>
+<details class="flex flex-col border-t border-border-light dark:border-border-dark py-2 group" open="">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-2">
+<p class="text-sm font-medium">Price Range</p>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="relative pt-6 pb-4">
+<div class="relative h-1 rounded-full bg-background-light dark:bg-background-dark">
+<div class="absolute h-1 rounded-full bg-primary" style="left: 10%; right: 40%;"></div>
+<div class="absolute -top-1.5" style="left: 10%;">
+<div class="w-4 h-4 rounded-full bg-primary ring-2 ring-surface-light dark:ring-surface-dark cursor-pointer"></div>
+<span class="absolute top-5 left-1/2 -translate-x-1/2 text-xs">$250</span>
+</div>
+<div class="absolute -top-1.5" style="right: 40%;">
+<div class="w-4 h-4 rounded-full bg-primary ring-2 ring-surface-light dark:ring-surface-dark cursor-pointer"></div>
+<span class="absolute top-5 left-1/2 -translate-x-1/2 text-xs">$1500</span>
+</div>
+</div>
+</div>
+</details>
+<details class="flex flex-col border-t border-border-light dark:border-border-dark py-2 group">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-2">
+<p class="text-sm font-medium">Color</p>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="grid grid-cols-5 gap-2 pt-2">
+<button class="w-8 h-8 rounded-full bg-gray-200 border-2 border-primary" data-alt="Light Gray color swatch"></button>
+<button class="w-8 h-8 rounded-full bg-[#333333]" data-alt="Charcoal color swatch"></button>
+<button class="w-8 h-8 rounded-full bg-blue-900" data-alt="Navy Blue color swatch"></button>
+<button class="w-8 h-8 rounded-full bg-green-900" data-alt="Forest Green color swatch"></button>
+<button class="w-8 h-8 rounded-full bg-amber-800" data-alt="Tan color swatch"></button>
+</div>
+</details>
+<details class="flex flex-col border-t border-b border-border-light dark:border-border-dark py-2 group">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-2">
+<p class="text-sm font-medium">Material</p>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="flex flex-col gap-2 pt-2 text-text-secondary-light dark:text-text-secondary-dark text-sm">
+<label class="flex items-center gap-2 cursor-pointer"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/>Fabric</label>
+<label class="flex items-center gap-2 cursor-pointer"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/>Leather</label>
+<label class="flex items-center gap-2 cursor-pointer"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/>Wood</label>
+<label class="flex items-center gap-2 cursor-pointer"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/>Metal</label>
+</div>
+</details>
+</div>
+</div>
+</aside>
+<!-- Main Content Area (Right Panel) -->
+<div class="lg:col-span-3">
+<!-- Sort Dropdown -->
+<div class="flex justify-between items-center mb-6">
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Showing 12 of 148 results</p>
+<div class="relative">
+<select class="form-select appearance-none rounded-lg bg-surface-light dark:bg-surface-dark border-border-light dark:border-border-dark focus:ring-2 focus:ring-primary/50 focus:border-primary pr-8 text-sm font-medium">
+<option>Sort by: Popularity</option>
+<option>Sort by: Newest</option>
+<option>Sort by: Price: Low to High</option>
+<option>Sort by: Price: High to Low</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-text-secondary-light dark:text-text-secondary-dark pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Product Card 1 -->
+<div class="group bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-sm transition-shadow hover:shadow-xl">
+<div class="relative">
+<img class="w-full h-56 object-cover" data-alt="Elegant gray three-seater sofa in a minimalist room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB223OSc3yj7l3jQGY30q7OHosx6L5gGOPB9wO2LWSvUw7JM5ovDO7rpeUS0qX55Hdptr3M8B97HPZdYLi8JTGyS2YhtfiitAUZN53HVQYfU6LlTLFPPgHkAqFuQxKyxbDP14NE1FXoMmAkkij0mmLfkdSUr8-eAdelV8zcW25oGsRuza96Qo5bAHDYBoENi4GQyni2m2X9MRvxl4pVzvKOzWREvUelkWF1x2VhmcyFo-nZUCQsBrbavYs8jPMKtXjxqlQJSLKwh59s"/>
+<button class="absolute top-3 right-3 w-9 h-9 flex items-center justify-center bg-surface-light/80 dark:bg-surface-dark/80 rounded-full text-text-secondary-light dark:text-text-secondary-dark hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-lg mb-1">Urban Elegance Sofa</h3>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm mb-3">Modern comfort for any living space.</p>
+<div class="flex justify-between items-center">
+<p class="font-black text-xl">$899.99</p>
+<button class="bg-primary text-white h-10 w-10 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-sm transition-shadow hover:shadow-xl">
+<div class="relative">
+<img class="w-full h-56 object-cover" data-alt="A stylish teal sofa with wooden legs against a plain wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLF1lotuvfBNkVYLneYZWiP7p49oRO6oLdN6HyZ_EufcNsDIVv9o9xukjwPfEntYVG9_oQ6ENw-Qrha2eSRgs-JkuNLImZepyynna56QoZHGJf6mWp4F6VTbvSEAwcZwKJBCjKfc-8MXrVsdsXeFof3sKdWrkiusUxxS77QGzFFgm71peMJSsc0KZ0s1QG54MvOxZNJtkWeBGaaS1aVBncQi8xpY1E2KJfYWjJUWKzF-CIk82pn9kjEikJ4ayBYACy0eecAF4y7auK"/>
+<button class="absolute top-3 right-3 w-9 h-9 flex items-center justify-center bg-surface-light/80 dark:bg-surface-dark/80 rounded-full text-text-secondary-light dark:text-text-secondary-dark hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-lg mb-1">Retro Mid-Century Sofa</h3>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm mb-3">Timeless design with a pop of color.</p>
+<div class="flex justify-between items-center">
+<p class="font-black text-xl">$1,250.00</p>
+<button class="bg-primary text-white h-10 w-10 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-sm transition-shadow hover:shadow-xl">
+<div class="relative">
+<img class="w-full h-56 object-cover" data-alt="A comfortable beige sectional sofa in a bright living room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGcdcMIAl30sT8vUSU9vc1DBtceH_7DTJXdup3SjnseN4_ftiENgZ8QfH_UQpa2eh4nqYEx6FQNOAAIae8xzQpI03yo41X5pAJWL8obbuTQLyjSGfjWiUJLg9FtWkU0IEw2IjMwPAjSDNuXplA4DCrxw0oqp6E3uX5jFkfMwHDnQ101JJxPAzJEQeL0Td7JDcyAlqKAG7c_Brb7NRQx_OMH38mreCsN_8tE31zVzfYpoGYzv6g11876og_fRUMiFmEFRVEjkDJ_ACH"/>
+<button class="absolute top-3 right-3 w-9 h-9 flex items-center justify-center bg-surface-light/80 dark:bg-surface-dark/80 rounded-full text-text-secondary-light dark:text-text-secondary-dark hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-lg mb-1">Cloud Sectional</h3>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm mb-3">Plush and spacious for the whole family.</p>
+<div class="flex justify-between items-center">
+<p class="font-black text-xl">$2,499.00</p>
+<button class="bg-primary text-white h-10 w-10 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-sm transition-shadow hover:shadow-xl">
+<div class="relative">
+<img class="w-full h-56 object-cover" data-alt="A luxurious dark green velvet sofa with gold accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLSWbKHpG6or_8ohvoLMRC-QU4u7oRQOfKk2I4MS2RxvzWQ1M8BQixW7qTAGN8IxMK90EY4vLe1zSL36k8TBd_7aU4rj7KdF7GH4vKdq38gUdHC3bjtZAXhDX5wIbuMgaRLnQ5lvlVrzQk6sRYXiOAQLP35UKw3afDCBqkzLfUzjSq_F_gaiBiuBOMBRPqfGJW8HWGSHkjVqweTWvwW1vr2-KtGxeaLLSHowX7Nc6D_v8HHTjvCFCg431ARmiXjpVsJHjpLqWWK-G4"/>
+<button class="absolute top-3 right-3 w-9 h-9 flex items-center justify-center bg-surface-light/80 dark:bg-surface-dark/80 rounded-full text-text-secondary-light dark:text-text-secondary-dark hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-lg mb-1">Emerald Velvet Sofa</h3>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm mb-3">A statement piece for a bold interior.</p>
+<div class="flex justify-between items-center">
+<p class="font-black text-xl">$1,800.00</p>
+<button class="bg-primary text-white h-10 w-10 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-sm transition-shadow hover:shadow-xl">
+<div class="relative">
+<img class="w-full h-56 object-cover" data-alt="A classic tan leather sofa in a rustic-style room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIrE99mYUE-0x58zfU0oz9C2vUo-wfdMmZw0QrLPS0RIzR7ABfZklbaBwh7A9e9uXWmlfuEDc7AEscch1vSEfw7Oklkhgz_6yoVMXLCRfmdf7NPo5Kq7TQuunrDafXaEQnwJ80fMi9PBzdmGYgc7NDATjreKAft-ahyuK9Oc4JwylWAaCDT0dNy-FpsybyOZg2PTUdag5Y55nUXLx7nh5EroW3nAb5rMdyMHC835mnCwLKes0OzeWZv5KNFh7JESKwf6dWqHZDJYxr"/>
+<button class="absolute top-3 right-3 w-9 h-9 flex items-center justify-center bg-surface-light/80 dark:bg-surface-dark/80 rounded-full text-text-secondary-light dark:text-text-secondary-dark hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-lg mb-1">Heritage Leather Sofa</h3>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm mb-3">Rich character that gets better with age.</p>
+<div class="flex justify-between items-center">
+<p class="font-black text-xl">$2,150.00</p>
+<button class="bg-primary text-white h-10 w-10 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="group bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-sm transition-shadow hover:shadow-xl">
+<div class="relative">
+<img class="w-full h-56 object-cover" data-alt="A sleek minimalist white sofa in a contemporary setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEcroqPDEi0SFClZsDLcELSWJg41t-ZSjjwbkQeu2GX_WUAaKjSizV4g-u_t6BGEInMdJ6CAHahM9c-GElcv4W2XBB39mSzpQHey53g4JC2Zx2nKuB2WP3FoypRpFnBYJfKpxBiku3FRTpKDtVegL0PEePcdO_DoVT97pozpknVFB44EN_Dy9k_Sbj3FqJtFrZwF1ZG8tslnN99TrEpqNI-GWX508At5po_udoQUwWEiGxsajmg4hdbv_lBn9rgM8OB6Hd72HpyzWT"/>
+<button class="absolute top-3 right-3 w-9 h-9 flex items-center justify-center bg-surface-light/80 dark:bg-surface-dark/80 rounded-full text-text-secondary-light dark:text-text-secondary-dark hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-lg mb-1">Minimalist Dream Sofa</h3>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm mb-3">Clean lines for a serene atmosphere.</p>
+<div class="flex justify-between items-center">
+<p class="font-black text-xl">$950.00</p>
+<button class="bg-primary text-white h-10 w-10 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination Component -->
+<nav aria-label="Pagination" class="flex justify-center items-center gap-2 mt-12">
+<a class="flex items-center justify-center h-10 w-10 rounded-lg text-text-secondary-light dark:text-text-secondary-dark hover:bg-gray-200 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">chevron_left</span>
+</a>
+<a class="flex items-center justify-center h-10 w-10 rounded-lg text-text-secondary-light dark:text-text-secondary-dark hover:bg-gray-200 dark:hover:bg-gray-700 font-medium" href="#">1</a>
+<a aria-current="page" class="flex items-center justify-center h-10 w-10 rounded-lg text-white bg-primary font-medium" href="#">2</a>
+<a class="flex items-center justify-center h-10 w-10 rounded-lg text-text-secondary-light dark:text-text-secondary-dark hover:bg-gray-200 dark:hover:bg-gray-700 font-medium" href="#">3</a>
+<span class="flex items-center justify-center h-10 w-10 text-text-secondary-light dark:text-text-secondary-dark">...</span>
+<a class="flex items-center justify-center h-10 w-10 rounded-lg text-text-secondary-light dark:text-text-secondary-dark hover:bg-gray-200 dark:hover:bg-gray-700 font-medium" href="#">12</a>
+<a class="flex items-center justify-center h-10 w-10 rounded-lg text-text-secondary-light dark:text-text-secondary-dark hover:bg-gray-200 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">chevron_right</span>
+</a>
+</nav>
+</div>
+</div>
+</main>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+<script src="js/custom.js"></script>
+</body></html>
