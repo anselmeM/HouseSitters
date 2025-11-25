@@ -1,240 +1,115 @@
 <!DOCTYPE html>
-<html lang="en-US">
-	<head>
-		<!-- Meta setup -->
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="keywords" content="">
-		<meta name="decription" content="">
-		<meta name="designer" content="Kooleythemes.com">
-		
-		<!-- Title -->
-		<title>Welcome</title>
-		
-		<!-- Fav Icon -->
-		<link rel="icon" href="img/favicon.ico" />	
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modern Furniture &amp; Home Decor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#EA580C", // A vibrant orange for call-to-actions
+              "background-light": "#FFF7ED", // A warm, creamy off-white
+              "background-dark": "#1F2937", // A deep, cool gray for dark mode
+            },
+            fontFamily: {
+              display: ["Poppins", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem", // 8px default border radius
+            },
+          },
+        },
+      };
+    </script>
+<style>
+        .material-icons-outlined {
+            font-size: inherit;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+<header class="py-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-8">
+<button class="md:hidden text-gray-600 dark:text-gray-400">
+<span class="material-icons-outlined text-3xl">menu</span>
+</button>
+<a class="text-2xl font-bold text-gray-900 dark:text-white" href="#">Furni.</a>
+<nav class="hidden md:flex items-center space-x-6">
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Products</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Rooms</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">SALE</a>
+</nav>
+</div>
+<div class="flex-1 max-w-sm mx-8 hidden lg:block">
+<div class="relative">
+<span class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+<input class="w-full rounded-full border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 py-2.5 pl-10 pr-4 text-sm focus:border-primary focus:ring-primary dark:focus:border-primary dark:focus:ring-primary" placeholder="What are you looking for?" type="text"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">
+<span class="material-icons-outlined">photo_camera</span>
+</button>
+</div>
+</div>
+<div class="flex items-center space-x-4 text-xl text-gray-600 dark:text-gray-400">
+<a class="hover:text-primary dark:hover:text-primary transition-colors" href="#"><span class="material-icons-outlined">person_outline</span></a>
+<a class="hover:text-primary dark:hover:text-primary transition-colors" href="#"><span class="material-icons-outlined">favorite_border</span></a>
+<a class="hover:text-primary dark:hover:text-primary transition-colors" href="#"><span class="material-icons-outlined">shopping_cart</span></a>
+</div>
+</div>
+</header>
+<main class="py-8">
+<div class="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-12">
+<div class="relative col-span-1 lg:col-span-3 rounded-lg overflow-hidden group">
+<img alt="An orange sofa with a pink cushion in a stylish living room setting." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlRDo5mIxDtTnxdVmpf-qhWnaF9skSOEDfCqvWF25S6fbsP--iBsbmROgNdyBUHxPvGL0U_3vRH5UR2PwtMIrud64e-xp94VbxKDKDaxA35Qaj8p5ViLcnHOeYdfvLe_DPvRh-TJZIEhBHt8wd0vXaGCQQfWG_FA7RTdlBW_WOZmMTGy3eI1zAP_TE7rgab7brfe7aVFjvV5k_w7shEJ2fnQZkS1Y21QP1X5XRc9WStK3NxgxdDZenqSLoXK6WO7gs5h5VAK_2xrKS"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<h1 class="text-4xl md:text-5xl font-bold text-white mb-4">The Fall Collection</h1>
+<button class="bg-primary text-white font-semibold py-3 px-6 rounded-md hover:bg-orange-700 transition-colors">Shop Now</button>
+</div>
+</div>
+<div class="col-span-1 lg:col-span-2 space-y-6">
+<div class="relative rounded-lg overflow-hidden group">
+<img alt="A stylish bookshelf with a wicker chair and a 'New Lower Price' tag." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTjCKCSdA0ilutuZuOXK3s0caS8XBxFtd7DG-58hQoYuPrZKZseWWwPATR0-SJPuFYnIVYf6Oqe7zONwrVoVkptn2VxAfok-y9oC9IEtrauupRHUN_fg2J13w-9EMattszZyjzRUh3EujaniH-kWDCGwTI1hHuh6KM7eKwDHmNZfsgsOy7CMkcoZx0GS1NOM1XUStajCpdyEJ0CGAp1dv04npsVJx_Lybt_Y-GpaJnqAibFQPY_QesZuytUzdLQ1-kX9QNILG949Uy"/>
+<div class="absolute top-4 left-4 bg-red-500 text-white text-center font-bold p-4 rounded-md shadow-lg leading-tight">New<br/>Lower<br/>Price</div>
+</div>
+<div class="relative rounded-lg overflow-hidden group">
+<img alt="The legs of a dark green velvet sofa on a light wood floor." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfFsbXKnKVJtUOXk4Q6mEqf5k8xTz4ApIbKYU8JimWKjxjMfAzk2w3jisMG2DJxnen-gFI2iFNWlCRb9rj1M5me-S_5gsbd5nTb-SR1PptIvNJ5ytHYL8uvIUVTzQuhoGDegPQO_Co-1j6xyPiRXxcyLPr2XoVKU9ouB_h_R0rq56VjrSHn7HilKyJ3R0Sq0oQITqkJuJi2R8BLZBuFM760Rsg0mF_8a9s2nF0Ly9izU-lcYISrm7aEqWCBU_d0lCid9hs8QIxj7aY"/>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="relative col-span-1 md:col-span-2 lg:col-span-1 rounded-lg overflow-hidden group cursor-pointer">
+<img alt="A modern white and grey chair with wooden armrests." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcCl_HShQbEnBAeBj3ODP5bxFBJgSrP-1x2JQzf9v_nK5Yx-GocQ-NdXSK-TEkZWj2TNNsARfbkLsltX5RW9sbdvPSVyDpehYZ6PxXxblu9F1SjzAXsk3nCEAC3tRyLGLLBxKJsLaRoNMQT3rHYE6EiFkKcUSYf6k8gnCdNKb9DxRGHY0KX2ipw0dm-9CzQmRxqiJk-yQQQGdUwr31aqOK_LFI3jrhCRx_lfY0T79fWxDqIPVDgHLk0CcOloVyQ8HYCfU4hHO2l7NO"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full bg-primary/90 backdrop-blur-sm">
+<h3 class="text-2xl font-semibold text-white">What's new</h3>
+<div class="w-16 h-1 bg-white mt-2"></div>
+</div>
+</div>
+<div class="relative rounded-lg overflow-hidden group cursor-pointer">
+<img alt="A classic red and wood chair in front of a vintage desk and bookshelf." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4irLobIHUFAGL4oSiOizYASjfLH6WkD3nI5KuoE0QQHwitjjaEC-6kJpFL3I6z0HCchx3vkrC5LxAzX8PZtGoCP_PoQvie1c_HkaaF6e0zywAyOWbB-6FFnHYuAIU_-fr5_yy1TVsOG1J4cjhqVEJbXcoBJNC6pXlm7dO_dJjApJ0S5Lv6Mi74oXNRMdID2ukcSsE0-hEYJurOnoNq43jKmRLzZRoWYkoLWLGUaK7H9dqVepD2xIdczoC_GI_jGivvF3wqgKJAxmv"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full bg-black/80 backdrop-blur-sm">
+<h3 class="text-2xl font-semibold text-white">Our Lowest Price</h3>
+<div class="w-16 h-1 bg-white mt-2"></div>
+</div>
+</div>
+<div class="relative rounded-lg overflow-hidden group cursor-pointer">
+<img alt="A close-up of the wooden frame of a sofa." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRU-lxLgoTh7ocFfAuj90pQt087undOY3_m8GHgXC-jzhzrLKaCTco85o386-g5z_fudezjtlYiLeApJTMlJRf91AeJtYPkRg0Hf4EbyZSLYlHcGrhAaw1lDRqKT8HgPC6P9vnn7qyywPAke9yox0ORxCG9rgIs8dEDZwax0h3j3943JiXzTTqv-_bu7f8CC4s-4NGp7g1rmgvxzFjnaQlWse1MCU0LDeeUOdlHInRd_V3JzDZSV8M9h24G62cxNte7yPnNtcCmlOV"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full bg-primary/90 backdrop-blur-sm">
+<h3 class="text-2xl font-semibold text-white">Sofas</h3>
+<div class="w-16 h-1 bg-white mt-2"></div>
+</div>
+</div>
+</div>
+</main>
+</div>
 
-		<!-- Include Bootstrap -->
-		<link rel="stylesheet" href="css/bootstrap.css" />
-
-		<link rel="stylesheet" href="css/owl.carousel.css" />
-
-	    <link rel="stylesheet" href="css/owl.theme.default.css" />
-
-	    	    <!-- sidebar StyleSheet -->
-		<link rel="stylesheet" href="css/sidebar.css" />
-		
-		<!-- Main StyleSheet -->
-		<link rel="stylesheet" href="style.css" />	
-		
-		<!-- Responsive CSS -->
-		<link rel="stylesheet" href="css/responsive.css" />	
-		
-	</head>
-	<body>
-		<!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
-
-		<!-- header-area start -->	
-		<header class="header-area">
-			<div class="container">
-				<div class="row no-gutters">
-					<div class="col-lg-4 col-md-4">
-						<div class="header-a1">
-                           <a href="#" onclick="$('.aside').asidebar('open')"><img src="img/menu-2.png" alt="" /></a>
-                           <input type="text" name="text">
-                           <ul>
-                           	 <li><a href="#">Products</a></li>
-                           	 <li><a href="#">Rooms</a></li>
-                           	 <li><a href="#">SALE</a></li>
-                           </ul>
-						</div>
-					</div>						
-
-					<div class="col-lg-5 col-md-5">
-						<div class="header-a3">
-                           <form action="#" method="POST">
-                           	    <img src="img/secrch.png" alt="" class="head-b1">
-                           	    <input type="text" name="text" placeholder="What are you Looking for?" />
-                           	    <a href="#">
-                           	    	<img src="img/comer.png" alt="" class="head-b2">
-                           	    </a>
-                           </form>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3">
-						<div class="header-a4">
-                             <ul>
-                             	<li><a href="#"><img src="img/map-location.png" alt="" /></a></li>
-                             	<li><a href="#"><img src="img/user.png" alt="" /></a></li>
-                             	<li><a href="#"><img src="img/agenda.png" alt="" /></a></li>
-                             	<li><a href="#"><img src="img/heart.png" alt="" /></a></li>
-                             	<li><a href="#"><img src="img/shopping.png" alt="" /></a></li>
-                             </ul>
-						</div>
-					</div>
-				</div>					
-			</div>
-		</header>	
-		<!-- header-area end -->	
-
-
-		<!-- tfc-area start -->
-		 <div class="tfc-area">
-		 	<div class="container">
-		 		 <div class="row">
-		 		 	 <div class="col-md-6 col-lg-7">
-		 		 	 	 <div class="tfc-left">
-		 		 	 	 	 <img src="img/sr-1.png" alt="image not found" />
-		 		 	 	 	 <p>The Fall Collection <span><a href="#"><i class="fas fa-arrow-circle-right"></i></a></span></p>
-		 		 	 	 </div>
-		 		 	 </div>
-		 		 	  <div class="col-md-6 col-lg-5">
-		 		 	 	 <div class="tfc-right">
-		 		 	 	 	 <div class="row">
-		 		 	 	 	 	 <div class="col-lg-12 col-md-12">
-		 		 	 	 	 	 	<div class="tfc-right_a1">
-		 		 	 	 	 	 		<img src="img/sr-2.png" alt="image not found" />
-		 		 	 	 	 	 		 <a href="#"><i class="fas fa-arrow-circle-right"></i></a>
-		 		 	 	 	 	 	</div>
-		 		 	 	 	 	 </div>
-		 		 	 	 	 </div>
-		 		 	 	 	 <div class="row">
-		 		 	 	 	 	 <div class="col-lg-12 col-md-12">
-		 		 	 	 	 	 	 <div class="tfc-right_b1">
-		 		 	 	 	 	 	 	
-		 		 	 	 	 	 	 	<div class="tfc-right_b2">
-		 		 	 	 	 	 	 		<div class="slider1 owl-carousel owl-theme">
-		 		 	 	 	 	 	 			<div>
-		 		 	 	 	 	 	 				<img src="img/sr-3.png" alt="image not found" />
-		 		 	 	 	 	 	 			</div>
-		 		 	 	 	 	 	 			<div>
-		 		 	 	 	 	 	 				<img src="img/sr-4.png" alt="image not found" />
-		 		 	 	 	 	 	 			</div>
-		 		 	 	 	 	 	 			<div>
-		 		 	 	 	 	 	 				<img src="img/sr-5.png" alt="image not found" />
-		 		 	 	 	 	 	 			</div>
-		 		 	 	 	 	 	 		</div> 
-		 		 	 	 	 	 	 	</div>
-		 		 	 	 	 	 	 </div>
-		 		 	 	 	 	 	 <div class="owl-nav">
-								        <div class="owl-prev custombtn"><i class="fas fa-arrow-circle-left" aria-hidden="true"></i></div>
-								        <div class="owl-next custombbtn"><i class="fas fa-arrow-circle-right" aria-hidden="true"></i></div>
-								    </div>
-		 		 	 	 	 	 </div>
-		 		 	 	 	 </div>
-		 		 	 	 </div>
-		 		 	 </div>
-		 		 </div>
-		 	</div> 
-		 </div>	
-		<!-- tfc-area end -->	
-
-
-		<!-- wos-area start -->	
-		 <div class="wos-area">
-		 	 <div class="container">
-		 	 	<div class="row">
-		 	 	<div class="col-lg-12 col-md-12">
-		 	 	<div class="slider2 owl-carousel owl-theme">
-		 	 		<div>
-		 	 			 <div class="wos-part">
-		 	 			 	 <img src="img/sr-6.png" alt="image not found" />
-		 	 			 	 <div class="wos-part1">
-		 	 			 	 	<p>What's new</p>
-		 	 			 	 	<a href="#"><i class="fas fa-arrow-right"></i></a>
-		 	 			 	 </div>
-		 	 			 </div>
-		 	 		</div>
-		 	 		<div>
-		 	 			 <div class="wos-part">
-		 	 			 	 <img src="img/sr-7.png" alt="image not found" />
-		 	 			 	 <div class="wos-part1 wos-part2">
-		 	 			 	 	<p>Our Lowest Price</p>
-		 	 			 	 	<a href="#"><i class="fas fa-arrow-right"></i></a>
-		 	 			 	 </div>
-		 	 			 </div>
-		 	 		</div>
-		 	 		<div>
-		 	 			 <div class="wos-part">
-		 	 			 	 <img src="img/sr-8.png" alt="image not found" />
-		 	 			 	 <div class="wos-part1">
-		 	 			 	 	<p>Sofas</p>
-		 	 			 	 	<a href="#"><i class="fas fa-arrow-right"></i></a>
-		 	 			 	 </div>
-		 	 			 </div>
-		 	 		</div>
-		 	 	</div>
-		 	 	 <div class="owl-nav">
-				   <div class="owl-next custombbttn"><i class="fas fa-arrow-circle-right" aria-hidden="true"></i></div>
-		        </div>
-		        <p class="last_p"></p>
-		 	 	</div> 
-		 	 	</div> 
-		 	 </div>
-		 </div>	
-		<!-- wos-area end -->		
-		
-	
-		<!-- fmobilehdr-area start -->	
-		<div class="fmobilehdr-area">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 col-md-12">				
-
-						<div class="fmobilehdr-part">
-							    <div class="aside">
-							      <div class="aside-header">							       
-							        <span class="close" data-dismiss="aside" aria-hidden="true">&times;</span>
-							      </div>
-							      <div class="aside-contents">
-							         <ul>
-			                           	 <li><a href="#">Products</a></li>
-			                           	 <li><a href="#">Rooms</a></li>
-			                           	 <li><a href="#">SALE</a></li>
-			                           </ul>
-							      </div>
-							    </div>
-					    		<div class="aside-backdrop"></div>                          
-						   </div>
-					</div>							
-				</div>					
-			</div>
-		</div>	
-		<!-- mobilehdr-area end -->		
-		
-		
-		
-		<!-- Main jQuery -->
-		<script src="js/jquery-3.4.1.min.js"></script>		
-
-		<!-- Bootstrap Propper jQuery -->
-		<script src="js/popper.js"></script>
-		
-		<!-- Bootstrap jQuery -->
-		<script src="js/bootstrap.js"></script>
-
-		<script src="js/owl.carousel.js"></script>
-
-
-
-		<script src="js/sidebar.js"></script>
-
-		<!-- Fontawesome Script -->
-		<script src="https://kit.fontawesome.com/7749c9f08a.js"></script>
-		
-		<!-- GSAP -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
-
-		<!-- Custom jQuery -->
-		<script src="js/scripts.js"></script>
-		<script src="js/custom.js"></script>
-		
-		<!-- Scroll-Top button -->
-		<a href="#" class="scrolltotop"><i class="fas fa-angle-up"></i></a>
-		
-	</body>
-</html>
+</body></html>
