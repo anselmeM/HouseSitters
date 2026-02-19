@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="referrer" content="strict-origin-when-cross-origin"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Your Cart - Modern Furniture &amp; Home Decor</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <script src="js/tailwind-config.js"></script>
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+  <style>
+      .material-icons-outlined {
+          font-size: inherit;
+      }
+      #cart-toast {
+        transition: opacity 0.3s ease-in-out;
+      }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+  <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+    <header class="py-6 relative z-50">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-8">
+          <button id="mobile-menu-btn" class="md:hidden text-gray-600 dark:text-gray-400 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" aria-label="Open menu" aria-expanded="false">
+            <span class="material-icons-outlined text-3xl">menu</span>
+          </button>
+          <a class="text-2xl font-bold text-gray-900 dark:text-white rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="index.html">Furni.</a>
+          <nav class="hidden md:flex items-center space-x-6">
+            <a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="products.html">Products</a>
+            <a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="rooms.html">Rooms</a>
+            <a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="sale.html">SALE</a>
+          </nav>
+        </div>
+        <div class="flex-1 max-w-sm mx-8 hidden lg:block">
+          <div class="relative">
+            <span class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+            <input class="w-full rounded-full border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 py-2.5 pl-10 pr-4 text-sm focus:border-primary focus:ring-primary dark:focus:border-primary dark:focus:ring-primary" placeholder="What are you looking for?" type="text" aria-label="Search products"/>
+            <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" aria-label="Search by image" title="Search by image">
+              <span class="material-icons-outlined">photo_camera</span>
+            </button>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4 text-xl text-gray-600 dark:text-gray-400">
+          <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="#" aria-label="Account" title="Account"><span class="material-icons-outlined">person_outline</span></a>
+          <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="#" aria-label="Favorites" title="Favorites"><span class="material-icons-outlined">favorite_border</span></a>
+          <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="cart.html" aria-label="Shopping cart" title="Shopping cart">
+              <span class="material-icons-outlined">shopping_cart</span>
+              <!-- Badge injected by JS -->
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-800 shadow-lg rounded-b-lg overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 invisible transform origin-top z-40">
+        <nav class="flex flex-col p-6 space-y-4">
+          <a class="text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="products.html">Products</a>
+          <a class="text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="rooms.html">Rooms</a>
+          <a class="text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="sale.html">SALE</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="py-8">
+      <h1 class="text-4xl font-bold mb-8">Shopping Cart</h1>
+
+      <div id="cart-empty-message" class="hidden text-center py-20">
+        <span class="material-icons-outlined text-6xl text-gray-400 mb-4">remove_shopping_cart</span>
+        <h2 class="text-2xl font-bold text-gray-600 mb-4">Your cart is empty</h2>
+        <a href="products.html" class="inline-block bg-primary text-white font-semibold py-3 px-8 rounded-full hover:bg-orange-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary">
+          Start Shopping
+        </a>
+      </div>
+
+      <div id="cart-content" class="hidden grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Cart Items List -->
+        <div class="lg:col-span-2 space-y-6" id="cart-items-container">
+          <!-- Items will be injected here -->
+        </div>
+
+        <!-- Order Summary -->
+        <div class="lg:col-span-1">
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm sticky top-24">
+            <h2 class="text-xl font-bold mb-6">Order Summary</h2>
+
+            <div class="space-y-4 mb-6 text-gray-600 dark:text-gray-300">
+              <div class="flex justify-between">
+                <span>Subtotal</span>
+                <span id="summary-subtotal">$0.00</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Shipping</span>
+                <span>Calculated at checkout</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Tax (Estimated)</span>
+                <span id="summary-tax">$0.00</span>
+              </div>
+            </div>
+
+            <div class="border-t border-gray-200 dark:border-gray-700 pt-4 mb-6">
+              <div class="flex justify-between font-bold text-lg">
+                <span>Total</span>
+                <span id="summary-total" class="text-primary">$0.00</span>
+              </div>
+            </div>
+
+            <button id="checkout-btn" class="w-full bg-primary hover:bg-orange-700 text-white font-bold py-3 rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary mb-4">
+              Proceed to Checkout
+            </button>
+
+            <a href="products.html" class="block text-center text-sm text-gray-500 hover:text-primary transition-colors">
+              or Continue Shopping
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const emptyMessage = document.getElementById('cart-empty-message');
+      const cartContent = document.getElementById('cart-content');
+      const itemsContainer = document.getElementById('cart-items-container');
+      const subtotalEl = document.getElementById('summary-subtotal');
+      const taxEl = document.getElementById('summary-tax');
+      const totalEl = document.getElementById('summary-total');
+
+      function renderCart() {
+        const cartItems = cart.getItems();
+
+        if (cartItems.length === 0) {
+          emptyMessage.classList.remove('hidden');
+          cartContent.classList.add('hidden');
+          return;
+        }
+
+        emptyMessage.classList.add('hidden');
+        cartContent.classList.remove('hidden');
+        itemsContainer.innerHTML = ''; // Clear current items
+
+        let subtotal = 0;
+
+        cartItems.forEach(item => {
+          const product = products.find(p => p.id === item.id);
+          if (!product) return; // Skip if product not found
+
+          const itemTotal = product.price * item.quantity;
+          subtotal += itemTotal;
+
+          const itemEl = document.createElement('div');
+          itemEl.className = 'flex flex-col sm:flex-row items-center gap-6 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm';
+          itemEl.innerHTML = `
+            <div class="w-24 h-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 dark:border-gray-700">
+              <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover">
+            </div>
+
+            <div class="flex-1 flex flex-col sm:flex-row sm:items-center justify-between w-full gap-4">
+              <div>
+                <h3 class="font-bold text-lg"><a href="product.html?id=${product.id}" class="hover:text-primary transition-colors">${product.name}</a></h3>
+                <p class="text-gray-500 text-sm mb-1">${product.id}</p>
+                <p class="font-medium text-primary">$${product.price.toFixed(2)}</p>
+              </div>
+
+              <div class="flex items-center gap-6">
+                <div class="flex items-center border border-gray-300 dark:border-gray-600 rounded-md">
+                  <button type="button" class="px-3 py-1 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors focus:outline-none" onclick="updateItemQuantity('${item.id}', ${item.quantity - 1})" aria-label="Decrease quantity">
+                    -
+                  </button>
+                  <span class="px-3 py-1 font-medium w-8 text-center">${item.quantity}</span>
+                  <button type="button" class="px-3 py-1 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors focus:outline-none" onclick="updateItemQuantity('${item.id}', ${item.quantity + 1})" aria-label="Increase quantity">
+                    +
+                  </button>
+                </div>
+
+                <p class="font-bold min-w-[80px] text-right">$${itemTotal.toFixed(2)}</p>
+
+                <button type="button" class="text-gray-400 hover:text-red-500 transition-colors p-2 rounded-full hover:bg-red-50 dark:hover:bg-red-900/20 focus:outline-none" onclick="removeItem('${item.id}')" aria-label="Remove item">
+                  <span class="material-icons-outlined">delete</span>
+                </button>
+              </div>
+            </div>
+          `;
+          itemsContainer.appendChild(itemEl);
+        });
+
+        // Update Summary
+        const taxRate = 0.08; // Example tax rate
+        const tax = subtotal * taxRate;
+        const total = subtotal + tax;
+
+        subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+        taxEl.textContent = `$${tax.toFixed(2)}`;
+        totalEl.textContent = `$${total.toFixed(2)}`;
+      }
+
+      // Expose functions for inline onclick handlers
+      window.updateItemQuantity = (id, newQty) => {
+        cart.updateQuantity(id, newQty);
+        renderCart();
+      };
+
+      window.removeItem = (id) => {
+        cart.removeItem(id);
+        renderCart();
+        cart.showToast('Item removed from cart');
+      };
+
+      // Checkout Button
+      document.getElementById('checkout-btn').addEventListener('click', () => {
+        alert('Proceeding to checkout...\n(This is a demo feature)');
+        // Ideally, redirect to a checkout page
+      });
+
+      // Initial Render
+      renderCart();
+
+      // Re-render if cart changes (e.g. from another tab, though simple polling or events might be needed for real-time across tabs)
+      // For this single-page context, relying on our own methods is fine.
+    });
+  </script>
+</body>
+</html>
