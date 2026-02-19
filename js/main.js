@@ -21,11 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 menu.classList.add('max-h-0', 'opacity-0');
 
                 // Wait for transition to finish before hiding completely
-                menu.addEventListener('transitionend', function onTransitionEnd() {
+                menu.addEventListener('transitionend', function onTransitionEnd(event) {
+                    if (event.target !== menu) return;
                     if (!menu.classList.contains('opacity-100')) {
                         menu.classList.add('invisible');
                     }
-                }, { once: true });
+                    menu.removeEventListener('transitionend', onTransitionEnd);
+                });
             }
         });
     }
