@@ -4,30 +4,12 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Rooms - Modern Furniture &amp; Home Decor</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script src="js/tailwind-config.js"></script>
+<script src="js/main.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
-<script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              primary: "#EA580C", // A vibrant orange for call-to-actions
-              "background-light": "#FFF7ED", // A warm, creamy off-white
-              "background-dark": "#1F2937", // A deep, cool gray for dark mode
-            },
-            fontFamily: {
-              display: ["Poppins", "sans-serif"],
-            },
-            borderRadius: {
-              DEFAULT: "0.5rem", // 8px default border radius
-            },
-          },
-        },
-      };
-    </script>
 <style>
         .material-icons-outlined {
             font-size: inherit;
@@ -83,7 +65,7 @@
 <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
 <h2 class="text-3xl font-bold text-white">Living Room</h2>
 </div>
-<a href="#" class="absolute inset-0" aria-label="Shop Living Room"></a>
+<a href="products.html" class="absolute inset-0" aria-label="Shop Living Room"></a>
 </div>
 <!-- Room 2 -->
 <div class="relative rounded-lg overflow-hidden h-80 group">
@@ -91,7 +73,7 @@
 <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
 <h2 class="text-3xl font-bold text-white">Bedroom</h2>
 </div>
-<a href="#" class="absolute inset-0" aria-label="Shop Bedroom"></a>
+<a href="products.html" class="absolute inset-0" aria-label="Shop Bedroom"></a>
 </div>
 <!-- Room 3 -->
 <div class="relative rounded-lg overflow-hidden h-80 group">
@@ -99,7 +81,7 @@
 <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
 <h2 class="text-3xl font-bold text-white">Office</h2>
 </div>
-<a href="#" class="absolute inset-0" aria-label="Shop Office"></a>
+<a href="products.html" class="absolute inset-0" aria-label="Shop Office"></a>
 </div>
 <!-- Room 4 -->
 <div class="relative rounded-lg overflow-hidden h-80 group">
@@ -107,39 +89,10 @@
 <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
 <h2 class="text-3xl font-bold text-white">Kitchen</h2>
 </div>
-<a href="#" class="absolute inset-0" aria-label="Shop Kitchen"></a>
+<a href="products.html" class="absolute inset-0" aria-label="Shop Kitchen"></a>
 </div>
 </div>
 </main>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-
-        if (btn && menu) {
-            btn.addEventListener('click', () => {
-                const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-                btn.setAttribute('aria-expanded', !isExpanded);
-
-                if (!isExpanded) {
-                    menu.classList.remove('invisible');
-                    requestAnimationFrame(() => {
-                        menu.classList.remove('max-h-0', 'opacity-0');
-                        menu.classList.add('max-h-screen', 'opacity-100');
-                    });
-                } else {
-                    menu.classList.remove('max-h-screen', 'opacity-100');
-                    menu.classList.add('max-h-0', 'opacity-0');
-                    menu.addEventListener('transitionend', function onTransitionEnd() {
-                        if (!menu.classList.contains('opacity-100')) {
-                            menu.classList.add('invisible');
-                        }
-                    }, { once: true });
-                }
-            });
-        }
-    });
-</script>
 </body></html>

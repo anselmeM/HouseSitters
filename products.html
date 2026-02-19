@@ -4,30 +4,12 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Products - Modern Furniture &amp; Home Decor</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script src="js/tailwind-config.js"></script>
+<script src="js/main.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
-<script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              primary: "#EA580C", // A vibrant orange for call-to-actions
-              "background-light": "#FFF7ED", // A warm, creamy off-white
-              "background-dark": "#1F2937", // A deep, cool gray for dark mode
-            },
-            fontFamily: {
-              display: ["Poppins", "sans-serif"],
-            },
-            borderRadius: {
-              DEFAULT: "0.5rem", // 8px default border radius
-            },
-          },
-        },
-      };
-    </script>
 <style>
         .material-icons-outlined {
             font-size: inherit;
@@ -92,7 +74,7 @@
 <div class="group">
 <div class="relative rounded-lg overflow-hidden aspect-square mb-4">
 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcCl_HShQbEnBAeBj3ODP5bxFBJgSrP-1x2JQzf9v_nK5Yx-GocQ-NdXSK-TEkZWj2TNNsARfbkLsltX5RW9sbdvPSVyDpehYZ6PxXxblu9F1SjzAXsk3nCEAC3tRyLGLLBxKJsLaRoNMQT3rHYE6EiFkKcUSYf6k8gnCdNKb9DxRGHY0KX2ipw0dm-9CzQmRxqiJk-yQQQGdUwr31aqOK_LFI3jrhCRx_lfY0T79fWxDqIPVDgHLk0CcOloVyQ8HYCfU4hHO2l7NO" alt="Modern Chair" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-<button class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+<button type="button" aria-label="Add Modern Grey Chair to cart" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
 <span class="material-icons-outlined text-primary">add_shopping_cart</span>
 </button>
 </div>
@@ -103,7 +85,7 @@
 <div class="group">
 <div class="relative rounded-lg overflow-hidden aspect-square mb-4">
 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4irLobIHUFAGL4oSiOizYASjfLH6WkD3nI5KuoE0QQHwitjjaEC-6kJpFL3I6z0HCchx3vkrC5LxAzX8PZtGoCP_PoQvie1c_HkaaF6e0zywAyOWbB-6FFnHYuAIU_-fr5_yy1TVsOG1J4cjhqVEJbXcoBJNC6pXlm7dO_dJjApJ0S5Lv6Mi74oXNRMdID2ukcSsE0-hEYJurOnoNq43jKmRLzZRoWYkoLWLGUaK7H9dqVepD2xIdczoC_GI_jGivvF3wqgKJAxmv" alt="Classic Desk Chair" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-<button class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+<button type="button" aria-label="Add Classic Desk Chair to cart" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
 <span class="material-icons-outlined text-primary">add_shopping_cart</span>
 </button>
 </div>
@@ -114,7 +96,7 @@
 <div class="group">
 <div class="relative rounded-lg overflow-hidden aspect-square mb-4">
 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfFsbXKnKVJtUOXk4Q6mEqf5k8xTz4ApIbKYU8JimWKjxjMfAzk2w3jisMG2DJxnen-gFI2iFNWlCRb9rj1M5me-S_5gsbd5nTb-SR1PptIvNJ5ytHYL8uvIUVTzQuhoGDegPQO_Co-1j6xyPiRXxcyLPr2XoVKU9ouB_h_R0rq56VjrSHn7HilKyJ3R0Sq0oQITqkJuJi2R8BLZBuFM760Rsg0mF_8a9s2nF0Ly9izU-lcYISrm7aEqWCBU_d0lCid9hs8QIxj7aY" alt="Green Velvet Sofa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-<button class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+<button type="button" aria-label="Add Green Velvet Sofa to cart" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
 <span class="material-icons-outlined text-primary">add_shopping_cart</span>
 </button>
 </div>
@@ -125,33 +107,4 @@
 </main>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-
-        if (btn && menu) {
-            btn.addEventListener('click', () => {
-                const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-                btn.setAttribute('aria-expanded', !isExpanded);
-
-                if (!isExpanded) {
-                    menu.classList.remove('invisible');
-                    requestAnimationFrame(() => {
-                        menu.classList.remove('max-h-0', 'opacity-0');
-                        menu.classList.add('max-h-screen', 'opacity-100');
-                    });
-                } else {
-                    menu.classList.remove('max-h-screen', 'opacity-100');
-                    menu.classList.add('max-h-0', 'opacity-0');
-                    menu.addEventListener('transitionend', function onTransitionEnd() {
-                        if (!menu.classList.contains('opacity-100')) {
-                            menu.classList.add('invisible');
-                        }
-                    }, { once: true });
-                }
-            });
-        }
-    });
-</script>
 </body></html>
