@@ -36,10 +36,10 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
 <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-<header class="py-6">
+<header class="py-6 relative z-50">
 <div class="flex items-center justify-between">
 <div class="flex items-center space-x-8">
-<button class="md:hidden text-gray-600 dark:text-gray-400 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" aria-label="Open menu">
+<button id="mobile-menu-btn" class="md:hidden text-gray-600 dark:text-gray-400 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" aria-label="Open menu" aria-expanded="false">
 <span class="material-icons-outlined text-3xl">menu</span>
 </button>
 <a class="text-2xl font-bold text-gray-900 dark:text-white rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="#">Furni.</a>
@@ -63,6 +63,15 @@
 <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="#" aria-label="Favorites" title="Favorites"><span class="material-icons-outlined">favorite_border</span></a>
 <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="#" aria-label="Shopping cart" title="Shopping cart"><span class="material-icons-outlined">shopping_cart</span></a>
 </div>
+</div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-800 shadow-lg rounded-b-lg overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 invisible transform origin-top z-40">
+<nav class="flex flex-col p-6 space-y-4">
+<a class="text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="#">Products</a>
+<a class="text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="#">Rooms</a>
+<a class="text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="#">SALE</a>
+</nav>
 </div>
 </header>
 <main class="py-8">
@@ -114,4 +123,38 @@
 </main>
 </div>
 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', !isExpanded);
+
+                if (!isExpanded) {
+                    // Open menu
+                    menu.classList.remove('invisible');
+                    // distinct step to ensure transition triggers
+                    requestAnimationFrame(() => {
+                        menu.classList.remove('max-h-0', 'opacity-0');
+                        menu.classList.add('max-h-screen', 'opacity-100');
+                    });
+                } else {
+                    // Close menu
+                    menu.classList.remove('max-h-screen', 'opacity-100');
+                    menu.classList.add('max-h-0', 'opacity-0');
+
+                    // Wait for transition to finish before hiding completely
+                    menu.addEventListener('transitionend', function onTransitionEnd() {
+                        if (!menu.classList.contains('opacity-100')) {
+                            menu.classList.add('invisible');
+                        }
+                    }, { once: true });
+                }
+            });
+        }
+    });
+</script>
 </body></html>
