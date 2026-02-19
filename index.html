@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="utf-8"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Modern Furniture &amp; Home Decor</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
 <script src="js/tailwind-config.js"></script>
+<script src="js/cart.js"></script>
 <script src="js/main.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +16,7 @@
         .material-icons-outlined {
             font-size: inherit;
         }
+        #cart-toast { transition: opacity 0.3s ease-in-out; }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
@@ -63,21 +66,21 @@
 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
 <div class="absolute bottom-0 left-0 p-8">
 <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">The Fall Collection</h1>
-<a href="#" class="inline-block bg-primary text-white font-semibold py-3 px-6 rounded-md hover:bg-orange-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white transition-shadow">Shop Now</a>
+<a href="product.html?id=orange-sofa" class="inline-block bg-primary text-white font-semibold py-3 px-6 rounded-md hover:bg-orange-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white transition-shadow">Shop Now</a>
 </div>
 </div>
 <div class="col-span-1 lg:col-span-2 space-y-6">
-<div class="relative rounded-lg overflow-hidden group">
+<a href="product.html?id=modern-bookshelf" class="block relative rounded-lg overflow-hidden group focus:outline-none focus:ring-4 focus:ring-primary/50 transition-shadow">
 <img alt="A stylish bookshelf with a wicker chair and a 'New Lower Price' tag." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTjCKCSdA0ilutuZuOXK3s0caS8XBxFtd7DG-58hQoYuPrZKZseWWwPATR0-SJPuFYnIVYf6Oqe7zONwrVoVkptn2VxAfok-y9oC9IEtrauupRHUN_fg2J13w-9EMattszZyjzRUh3EujaniH-kWDCGwTI1hHuh6KM7eKwDHmNZfsgsOy7CMkcoZx0GS1NOM1XUStajCpdyEJ0CGAp1dv04npsVJx_Lybt_Y-GpaJnqAibFQPY_QesZuytUzdLQ1-kX9QNILG949Uy"/>
 <div class="absolute top-4 left-4 bg-red-500 text-white text-center font-bold p-4 rounded-md shadow-lg leading-tight">New<br/>Lower<br/>Price</div>
-</div>
-<div class="relative rounded-lg overflow-hidden group">
+</a>
+<a href="product.html?id=green-velvet-sofa" class="block relative rounded-lg overflow-hidden group focus:outline-none focus:ring-4 focus:ring-primary/50 transition-shadow">
 <img alt="The legs of a dark green velvet sofa on a light wood floor." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfFsbXKnKVJtUOXk4Q6mEqf5k8xTz4ApIbKYU8JimWKjxjMfAzk2w3jisMG2DJxnen-gFI2iFNWlCRb9rj1M5me-S_5gsbd5nTb-SR1PptIvNJ5ytHYL8uvIUVTzQuhoGDegPQO_Co-1j6xyPiRXxcyLPr2XoVKU9ouB_h_R0rq56VjrSHn7HilKyJ3R0Sq0oQITqkJuJi2R8BLZBuFM760Rsg0mF_8a9s2nF0Ly9izU-lcYISrm7aEqWCBU_d0lCid9hs8QIxj7aY"/>
-</div>
+</a>
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<a href="#" class="block relative col-span-1 md:col-span-2 lg:col-span-1 rounded-lg overflow-hidden group focus:outline-none focus:ring-4 ring-inset focus:ring-primary/50 transition-shadow">
+<a href="product.html?id=modern-grey-chair" class="block relative col-span-1 md:col-span-2 lg:col-span-1 rounded-lg overflow-hidden group focus:outline-none focus:ring-4 ring-inset focus:ring-primary/50 transition-shadow">
 <img alt="A modern white and grey chair with wooden armrests." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcCl_HShQbEnBAeBj3ODP5bxFBJgSrP-1x2JQzf9v_nK5Yx-GocQ-NdXSK-TEkZWj2TNNsARfbkLsltX5RW9sbdvPSVyDpehYZ6PxXxblu9F1SjzAXsk3nCEAC3tRyLGLLBxKJsLaRoNMQT3rHYE6EiFkKcUSYf6k8gnCdNKb9DxRGHY0KX2ipw0dm-9CzQmRxqiJk-yQQQGdUwr31aqOK_LFI3jrhCRx_lfY0T79fWxDqIPVDgHLk0CcOloVyQ8HYCfU4hHO2l7NO"/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
 <div class="absolute bottom-0 left-0 p-6 w-full bg-primary/90 backdrop-blur-sm">
@@ -85,7 +88,7 @@
 <div class="w-16 h-1 bg-white mt-2"></div>
 </div>
 </a>
-<a href="#" class="block relative rounded-lg overflow-hidden group focus:outline-none focus:ring-4 focus:ring-primary/50 transition-shadow">
+<a href="product.html?id=classic-desk-chair" class="block relative rounded-lg overflow-hidden group focus:outline-none focus:ring-4 focus:ring-primary/50 transition-shadow">
 <img alt="A classic red and wood chair in front of a vintage desk and bookshelf." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4irLobIHUFAGL4oSiOizYASjfLH6WkD3nI5KuoE0QQHwitjjaEC-6kJpFL3I6z0HCchx3vkrC5LxAzX8PZtGoCP_PoQvie1c_HkaaF6e0zywAyOWbB-6FFnHYuAIU_-fr5_yy1TVsOG1J4cjhqVEJbXcoBJNC6pXlm7dO_dJjApJ0S5Lv6Mi74oXNRMdID2ukcSsE0-hEYJurOnoNq43jKmRLzZRoWYkoLWLGUaK7H9dqVepD2xIdczoC_GI_jGivvF3wqgKJAxmv"/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
 <div class="absolute bottom-0 left-0 p-6 w-full bg-black/80 backdrop-blur-sm">
@@ -93,7 +96,7 @@
 <div class="w-16 h-1 bg-white mt-2"></div>
 </div>
 </a>
-<a href="#" class="block relative rounded-lg overflow-hidden group focus:outline-none focus:ring-4 focus:ring-primary/50 transition-shadow">
+<a href="product.html?id=wooden-sofa-frame" class="block relative rounded-lg overflow-hidden group focus:outline-none focus:ring-4 focus:ring-primary/50 transition-shadow">
 <img alt="A close-up of the wooden frame of a sofa." class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRU-lxLgoTh7ocFfAuj90pQt087undOY3_m8GHgXC-jzhzrLKaCTco85o386-g5z_fudezjtlYiLeApJTMlJRf91AeJtYPkRg0Hf4EbyZSLYlHcGrhAaw1lDRqKT8HgPC6P9vnn7qyywPAke9yox0ORxCG9rgIs8dEDZwax0h3j3943JiXzTTqv-_bu7f8CC4s-4NGp7g1rmgvxzFjnaQlWse1MCU0LDeeUOdlHInRd_V3JzDZSV8M9h24G62cxNte7yPnNtcCmlOV"/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
 <div class="absolute bottom-0 left-0 p-6 w-full bg-primary/90 backdrop-blur-sm">
