@@ -1,37 +1,22 @@
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="utf-8"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>SALE - Modern Furniture &amp; Home Decor</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script src="js/tailwind-config.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
-<script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              primary: "#EA580C", // A vibrant orange for call-to-actions
-              "background-light": "#FFF7ED", // A warm, creamy off-white
-              "background-dark": "#1F2937", // A deep, cool gray for dark mode
-            },
-            fontFamily: {
-              display: ["Poppins", "sans-serif"],
-            },
-            borderRadius: {
-              DEFAULT: "0.5rem", // 8px default border radius
-            },
-          },
-        },
-      };
-    </script>
 <style>
         .material-icons-outlined {
             font-size: inherit;
         }
+        #cart-toast { transition: opacity 0.3s ease-in-out; }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
@@ -81,37 +66,52 @@
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 <!-- Sale Item 1 -->
-<div class="group border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<div class="group border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden relative">
 <div class="relative aspect-video">
+<a href="product.html?id=modern-bookshelf">
 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTjCKCSdA0ilutuZuOXK3s0caS8XBxFtd7DG-58hQoYuPrZKZseWWwPATR0-SJPuFYnIVYf6Oqe7zONwrVoVkptn2VxAfok-y9oC9IEtrauupRHUN_fg2J13w-9EMattszZyjzRUh3EujaniH-kWDCGwTI1hHuh6KM7eKwDHmNZfsgsOy7CMkcoZx0GS1NOM1XUStajCpdyEJ0CGAp1dv04npsVJx_Lybt_Y-GpaJnqAibFQPY_QesZuytUzdLQ1-kX9QNILG949Uy" alt="Bookshelf" class="w-full h-full object-cover">
+</a>
 <div class="absolute top-4 left-4 bg-red-500 text-white font-bold px-3 py-1 rounded">-30%</div>
+<button type="button" aria-label="Add Modern Bookshelf to cart" onclick="addToCart('modern-bookshelf')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-icons-outlined text-primary">add_shopping_cart</span>
+</button>
 </div>
 <div class="p-4">
-<h3 class="font-semibold text-lg">Modern Bookshelf</h3>
+<a href="product.html?id=modern-bookshelf"><h3 class="font-semibold text-lg hover:text-primary transition-colors">Modern Bookshelf</h3></a>
 <p class="text-gray-500 line-through">$299.00</p>
 <p class="text-red-600 font-bold text-xl">$209.30</p>
 </div>
 </div>
 <!-- Sale Item 2 -->
-<div class="group border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<div class="group border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden relative">
 <div class="relative aspect-video">
+<a href="product.html?id=accent-chair">
 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcCl_HShQbEnBAeBj3ODP5bxFBJgSrP-1x2JQzf9v_nK5Yx-GocQ-NdXSK-TEkZWj2TNNsARfbkLsltX5RW9sbdvPSVyDpehYZ6PxXxblu9F1SjzAXsk3nCEAC3tRyLGLLBxKJsLaRoNMQT3rHYE6EiFkKcUSYf6k8gnCdNKb9DxRGHY0KX2ipw0dm-9CzQmRxqiJk-yQQQGdUwr31aqOK_LFI3jrhCRx_lfY0T79fWxDqIPVDgHLk0CcOloVyQ8HYCfU4hHO2l7NO" alt="Chair" class="w-full h-full object-cover">
+</a>
 <div class="absolute top-4 left-4 bg-red-500 text-white font-bold px-3 py-1 rounded">-20%</div>
+<button type="button" aria-label="Add Accent Chair to cart" onclick="addToCart('accent-chair')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-icons-outlined text-primary">add_shopping_cart</span>
+</button>
 </div>
 <div class="p-4">
-<h3 class="font-semibold text-lg">Accent Chair</h3>
+<a href="product.html?id=accent-chair"><h3 class="font-semibold text-lg hover:text-primary transition-colors">Accent Chair</h3></a>
 <p class="text-gray-500 line-through">$199.00</p>
 <p class="text-red-600 font-bold text-xl">$159.20</p>
 </div>
 </div>
 <!-- Sale Item 3 -->
-<div class="group border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<div class="group border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden relative">
 <div class="relative aspect-video">
+<a href="product.html?id=wooden-sofa-frame">
 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRU-lxLgoTh7ocFfAuj90pQt087undOY3_m8GHgXC-jzhzrLKaCTco85o386-g5z_fudezjtlYiLeApJTMlJRf91AeJtYPkRg0Hf4EbyZSLYlHcGrhAaw1lDRqKT8HgPC6P9vnn7qyywPAke9yox0ORxCG9rgIs8dEDZwax0h3j3943JiXzTTqv-_bu7f8CC4s-4NGp7g1rmgvxzFjnaQlWse1MCU0LDeeUOdlHInRd_V3JzDZSV8M9h24G62cxNte7yPnNtcCmlOV" alt="Sofa Frame" class="w-full h-full object-cover">
+</a>
 <div class="absolute top-4 left-4 bg-red-500 text-white font-bold px-3 py-1 rounded">-15%</div>
+<button type="button" aria-label="Add Wooden Sofa Frame to cart" onclick="addToCart('wooden-sofa-frame')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-icons-outlined text-primary">add_shopping_cart</span>
+</button>
 </div>
 <div class="p-4">
-<h3 class="font-semibold text-lg">Wooden Sofa Frame</h3>
+<a href="product.html?id=wooden-sofa-frame"><h3 class="font-semibold text-lg hover:text-primary transition-colors">Wooden Sofa Frame</h3></a>
 <p class="text-gray-500 line-through">$450.00</p>
 <p class="text-red-600 font-bold text-xl">$382.50</p>
 </div>
@@ -120,33 +120,4 @@
 </main>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-
-        if (btn && menu) {
-            btn.addEventListener('click', () => {
-                const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-                btn.setAttribute('aria-expanded', !isExpanded);
-
-                if (!isExpanded) {
-                    menu.classList.remove('invisible');
-                    requestAnimationFrame(() => {
-                        menu.classList.remove('max-h-0', 'opacity-0');
-                        menu.classList.add('max-h-screen', 'opacity-100');
-                    });
-                } else {
-                    menu.classList.remove('max-h-screen', 'opacity-100');
-                    menu.classList.add('max-h-0', 'opacity-0');
-                    menu.addEventListener('transitionend', function onTransitionEnd() {
-                        if (!menu.classList.contains('opacity-100')) {
-                            menu.classList.add('invisible');
-                        }
-                    }, { once: true });
-                }
-            });
-        }
-    });
-</script>
 </body></html>
