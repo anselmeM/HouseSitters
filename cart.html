@@ -111,9 +111,9 @@
               </div>
             </div>
 
-            <button id="checkout-btn" class="w-full bg-primary hover:bg-orange-700 text-white font-bold py-3 rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary mb-4">
+            <a href="checkout.html" id="checkout-btn" class="block text-center w-full bg-primary hover:bg-orange-700 text-white font-bold py-3 rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary mb-4">
               Proceed to Checkout
-            </button>
+            </a>
 
             <a href="products.html" class="block text-center text-sm text-gray-500 hover:text-primary transition-colors">
               or Continue Shopping
@@ -213,11 +213,6 @@
         cart.showToast('Item removed from cart');
       };
 
-      // Checkout Button
-      document.getElementById('checkout-btn').addEventListener('click', () => {
-        alert('Proceeding to checkout...\n(This is a demo feature)');
-        // Ideally, redirect to a checkout page
-      });
 
       // Initial Render
       renderCart();

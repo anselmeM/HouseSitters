@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="referrer" content="strict-origin-when-cross-origin"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Order Successful - Modern Furniture &amp; Home Decor</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <script src="js/tailwind-config.js"></script>
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+  <style>
+      .material-icons-outlined {
+          font-size: inherit;
+      }
+      #cart-toast {
+        transition: opacity 0.3s ease-in-out;
+      }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+  <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+    <header class="py-6 relative z-50">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-8">
+          <button id="mobile-menu-btn" class="md:hidden text-gray-600 dark:text-gray-400 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" aria-label="Open menu" aria-expanded="false">
+            <span class="material-icons-outlined text-3xl">menu</span>
+          </button>
+          <a class="text-2xl font-bold text-gray-900 dark:text-white rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="index.html">Furni.</a>
+          <nav class="hidden md:flex items-center space-x-6">
+            <a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="products.html">Products</a>
+            <a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="rooms.html">Rooms</a>
+            <a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="sale.html">SALE</a>
+          </nav>
+        </div>
+        <div class="flex-1 max-w-sm mx-8 hidden lg:block">
+          <div class="relative">
+            <span class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+            <input class="w-full rounded-full border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 py-2.5 pl-10 pr-4 text-sm focus:border-primary focus:ring-primary dark:focus:border-primary dark:focus:ring-primary" placeholder="What are you looking for?" type="text" aria-label="Search products"/>
+            <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" aria-label="Search by image" title="Search by image">
+              <span class="material-icons-outlined">photo_camera</span>
+            </button>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4 text-xl text-gray-600 dark:text-gray-400">
+          <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="#" aria-label="Account" title="Account"><span class="material-icons-outlined">person_outline</span></a>
+          <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="#" aria-label="Favorites" title="Favorites"><span class="material-icons-outlined">favorite_border</span></a>
+          <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="cart.html" aria-label="Shopping cart" title="Shopping cart">
+              <span class="material-icons-outlined">shopping_cart</span>
+              <!-- Badge injected by JS -->
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-800 shadow-lg rounded-b-lg overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 invisible transform origin-top z-40">
+        <nav class="flex flex-col p-6 space-y-4">
+          <a class="text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="products.html">Products</a>
+          <a class="text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="rooms.html">Rooms</a>
+          <a class="text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="sale.html">SALE</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="py-20 text-center">
+      <div class="mb-8">
+        <span class="material-icons-outlined text-8xl text-green-500">check_circle</span>
+      </div>
+      <h1 class="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Order Placed Successfully!</h1>
+      <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-lg mx-auto">
+        Thank you for your purchase. We have received your order and are preparing it for shipment. You will receive an email confirmation shortly.
+      </p>
+      <a href="products.html" class="inline-block bg-primary text-white font-semibold py-3 px-8 rounded-full hover:bg-orange-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary">
+        Continue Shopping
+      </a>
+    </main>
+  </div>
+</body>
+</html>
