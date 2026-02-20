@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     injectFooter();
+    initSearchBar();
 
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
@@ -34,6 +35,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+function initSearchBar() {
+    const searchInputs = document.querySelectorAll('input[aria-label="Search products"]');
+
+    searchInputs.forEach(input => {
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const term = input.value.trim();
+                if (term) {
+                    window.location.href = `products.html?search=${encodeURIComponent(term)}`;
+                }
+            }
+        });
+    });
+}
 
 function injectFooter() {
     const footerContainer = document.getElementById('site-footer');

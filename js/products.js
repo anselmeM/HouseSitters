@@ -18,8 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Initialize global search bar logic across the site
-    initSearchBar();
 });
 
 // Update active filter UI
@@ -43,23 +41,6 @@ function updateActiveFilter(category) {
              btn.classList.remove('bg-primary', 'text-white');
              btn.classList.add('bg-gray-100', 'dark:bg-gray-700', 'text-gray-600', 'dark:text-gray-300');
         }
-    });
-}
-
-// Global search bar handler
-function initSearchBar() {
-    const searchInputs = document.querySelectorAll('input[aria-label="Search products"]');
-
-    searchInputs.forEach(input => {
-        input.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                const term = input.value.trim();
-                if (term) {
-                    window.location.href = `products.html?search=${encodeURIComponent(term)}`;
-                }
-            }
-        });
     });
 }
 
