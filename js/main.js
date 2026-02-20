@@ -82,4 +82,20 @@ function injectFooter() {
 
 document.addEventListener('DOMContentLoaded', () => {
     injectFooter();
+    initSearchBar();
 });
+
+function initSearchBar() {
+    const searchInputs = document.querySelectorAll('input[aria-label="Search products"]');
+    searchInputs.forEach(input => {
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const term = input.value.trim();
+                if (term) {
+                    window.location.href = `products.html?search=${encodeURIComponent(term)}`;
+                }
+            }
+        });
+    });
+}
