@@ -4,6 +4,7 @@
   <meta charset="utf-8"/>
   <meta name="referrer" content="strict-origin-when-cross-origin"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta name="description" content="View detailed product information and specifications for our modern furniture collection. Find dimensions, materials, and pricing."/>
   <title>Product Details - Modern Furniture &amp; Home Decor</title>
 <link href="css/style.css" rel="stylesheet"/>
   <script src="js/products-data.js"></script>
@@ -108,6 +109,7 @@
 
       if (product) {
         document.title = `${product.name} - Modern Furniture`;
+        document.querySelector('meta[name="description"]').setAttribute("content", product.description);
         document.getElementById('product-name').textContent = product.name;
         document.getElementById('product-image').src = product.image;
         document.getElementById('product-image').alt = product.name;
