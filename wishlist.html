@@ -4,8 +4,8 @@
   <meta charset="utf-8"/>
   <meta name="referrer" content="strict-origin-when-cross-origin"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta name="description" content="Thank you for your order."/>
-  <title>Order Confirmed - Modern Furniture &amp; Home Decor</title>
+  <meta name="description" content="View and manage your favorite furniture and home decor items."/>
+  <title>Your Wishlist - Modern Furniture &amp; Home Decor</title>
   <link href="css/style.css" rel="stylesheet"/>
   <script src="js/products-data.js"></script>
   <script src="js/cart.js"></script>
@@ -19,7 +19,7 @@
       .material-icons-outlined {
           font-size: inherit;
       }
-      #cart-toast { transition: opacity 0.3s ease-in-out; }
+      #cart-toast, #wishlist-toast { transition: opacity 0.3s ease-in-out; }
   </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
@@ -48,7 +48,7 @@
         </div>
         <div class="flex items-center space-x-4 text-xl text-gray-600 dark:text-gray-400">
           <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="#" aria-label="Account" title="Account"><span class="material-icons-outlined">person_outline</span></a>
-<a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="wishlist.html" aria-label="Favorites" title="Favorites"><span class="material-icons-outlined">favorite_border</span></a>
+          <a class="text-primary hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="wishlist.html" aria-label="Favorites" title="Favorites"><span class="material-icons-outlined">favorite</span></a>
           <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="cart.html" aria-label="Shopping cart" title="Shopping cart">
               <span class="material-icons-outlined">shopping_cart</span>
           </a>
@@ -65,14 +65,115 @@
       </div>
     </header>
 
-    <main class="py-20 text-center">
-      <div class="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-8">
-          <span class="material-icons-outlined text-5xl text-green-600">check_circle</span>
+    <main class="py-8">
+      <h1 class="text-4xl font-bold mb-8">Your Wishlist</h1>
+
+      <div id="empty-wishlist-message" class="hidden text-center py-12">
+          <span class="material-icons-outlined text-6xl text-gray-300 mb-4">favorite_border</span>
+          <p class="text-xl text-gray-600 dark:text-gray-400 mb-6">Your wishlist is currently empty.</p>
+          <a href="products.html" class="inline-block bg-primary text-white font-semibold py-3 px-8 rounded-md hover:bg-orange-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white">Start Browsing</a>
       </div>
-      <h1 class="text-4xl font-bold mb-4">Thank You!</h1>
-      <p class="text-xl text-gray-600 dark:text-gray-400 mb-8">Your order has been placed successfully.</p>
-      <a href="products.html" class="inline-block bg-primary text-white font-semibold py-3 px-8 rounded-md hover:bg-orange-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white">Continue Shopping</a>
+
+      <div id="wishlist-content" class="hidden">
+          <div id="wishlist-items" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <!-- Wishlist items will be injected here -->
+          </div>
+      </div>
     </main>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        renderWishlist();
+        cart.init(); // Initialize cart badge
+    });
+
+    window.renderWishlist = function() {
+        const wishlistItems = wishlist.getItems();
+        const container = document.getElementById('wishlist-items');
+        const emptyMessage = document.getElementById('empty-wishlist-message');
+        const wishlistContent = document.getElementById('wishlist-content');
+
+        container.innerHTML = '';
+
+        if (wishlistItems.length === 0) {
+            emptyMessage.classList.remove('hidden');
+            wishlistContent.classList.add('hidden');
+            return;
+        }
+
+        emptyMessage.classList.add('hidden');
+        wishlistContent.classList.remove('hidden');
+
+        wishlistItems.forEach(id => {
+            const product = products.find(p => p.id === id);
+            if (!product) return;
+
+            const itemEl = document.createElement('div');
+            itemEl.className = 'bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 group';
+
+            // Image
+            const imgLink = document.createElement('a');
+            imgLink.href = `product.html?id=${product.id}`;
+            imgLink.className = 'block relative aspect-[4/3] overflow-hidden';
+            const img = document.createElement('img');
+            img.src = product.image;
+            img.alt = product.name;
+            img.className = 'w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500';
+            imgLink.appendChild(img);
+            itemEl.appendChild(imgLink);
+
+            // Content
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'p-4';
+
+            const nameLink = document.createElement('a');
+            nameLink.href = `product.html?id=${product.id}`;
+            nameLink.className = 'hover:text-primary transition-colors';
+            const h3 = document.createElement('h3');
+            h3.className = 'font-semibold text-lg mb-1 truncate';
+            h3.textContent = product.name;
+            nameLink.appendChild(h3);
+            contentDiv.appendChild(nameLink);
+
+            const priceDiv = document.createElement('div');
+            priceDiv.className = 'flex items-center justify-between mb-4';
+            const price = document.createElement('span');
+            price.className = 'text-primary font-bold';
+            price.textContent = `$${product.price.toFixed(2)}`;
+            priceDiv.appendChild(price);
+            contentDiv.appendChild(priceDiv);
+
+            // Buttons
+            const btnGroup = document.createElement('div');
+            btnGroup.className = 'flex space-x-2';
+
+            const addToCartBtn = document.createElement('button');
+            addToCartBtn.type = 'button';
+            addToCartBtn.className = 'flex-1 bg-primary text-white text-sm font-semibold py-2 rounded hover:bg-orange-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50';
+            addToCartBtn.textContent = 'Add to Cart';
+            addToCartBtn.onclick = () => {
+                cart.addItem(product.id);
+            };
+            btnGroup.appendChild(addToCartBtn);
+
+            const removeBtn = document.createElement('button');
+            removeBtn.type = 'button';
+            removeBtn.className = 'p-2 text-red-500 hover:bg-red-50 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-red-500/50';
+            removeBtn.ariaLabel = `Remove ${product.name} from wishlist`;
+            removeBtn.onclick = () => wishlist.removeItem(product.id);
+            const removeIcon = document.createElement('span');
+            removeIcon.className = 'material-icons-outlined';
+            removeIcon.textContent = 'delete';
+            removeBtn.appendChild(removeIcon);
+            btnGroup.appendChild(removeBtn);
+
+            contentDiv.appendChild(btnGroup);
+            itemEl.appendChild(contentDiv);
+
+            container.appendChild(itemEl);
+        });
+    }
+  </script>
 </body>
 </html>

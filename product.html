@@ -9,6 +9,7 @@
 <link href="css/style.css" rel="stylesheet"/>
   <script src="js/products-data.js"></script>
   <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
   <script src="js/main.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,7 +50,7 @@
         </div>
         <div class="flex items-center space-x-4 text-xl text-gray-600 dark:text-gray-400">
           <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="#" aria-label="Account" title="Account"><span class="material-icons-outlined">person_outline</span></a>
-          <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="#" aria-label="Favorites" title="Favorites"><span class="material-icons-outlined">favorite_border</span></a>
+<a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="wishlist.html" aria-label="Favorites" title="Favorites"><span class="material-icons-outlined">favorite_border</span></a>
           <a class="relative hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="cart.html" aria-label="Shopping cart" title="Shopping cart">
               <span class="material-icons-outlined">shopping_cart</span>
               <!-- Badge injected by JS -->
@@ -79,10 +80,15 @@
               <span id="product-original-price" class="text-gray-500 line-through ml-2 hidden"></span>
           </div>
           <p id="product-description" class="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed"></p>
-          <button id="add-to-cart-btn" class="bg-primary hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary/50 flex items-center gap-2">
-            <span class="material-icons-outlined">add_shopping_cart</span>
-            Add to Cart
-          </button>
+          <div class="flex items-center gap-4">
+              <button id="add-to-cart-btn" class="bg-primary hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary/50 flex items-center gap-2">
+                <span class="material-icons-outlined">add_shopping_cart</span>
+                Add to Cart
+              </button>
+              <button id="wishlist-btn" class="p-3 rounded-full border border-gray-300 dark:border-gray-600 hover:border-primary hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50" aria-label="Add to wishlist">
+                  <span class="material-icons-outlined text-2xl">favorite_border</span>
+              </button>
+          </div>
         </div>
       </div>
 
@@ -131,6 +137,17 @@
             window.addToCart(product.id);
             cart.showToast(`Added ${product.name} to cart!`);
         };
+
+        const wishlistBtn = document.getElementById('wishlist-btn');
+        wishlistBtn.setAttribute('data-product-id', product.id);
+        wishlistBtn.onclick = () => {
+            wishlist.toggleWishlist(product.id);
+        };
+
+        // Initialize state
+        if (wishlist.isInWishlist(product.id)) {
+            wishlist.updateHeartIcons(product.id, true);
+        }
 
         loading.classList.add('hidden');
         container.classList.remove('hidden');

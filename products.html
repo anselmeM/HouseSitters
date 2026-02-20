@@ -7,6 +7,7 @@
 <title>Products - Modern Furniture &amp; Home Decor</title>
 <link href="css/style.css" rel="stylesheet"/>
 <script src="js/cart.js"></script>
+<script src="js/wishlist.js"></script>
 <script src="js/main.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,7 +46,7 @@
 </div>
 <div class="flex items-center space-x-4 text-xl text-gray-600 dark:text-gray-400">
 <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="#" aria-label="Account" title="Account"><span class="material-icons-outlined">person_outline</span></a>
-<a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="#" aria-label="Favorites" title="Favorites"><span class="material-icons-outlined">favorite_border</span></a>
+<a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="wishlist.html" aria-label="Favorites" title="Favorites"><span class="material-icons-outlined">favorite_border</span></a>
 <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="cart.html" aria-label="Shopping cart" title="Shopping cart"><span class="material-icons-outlined">shopping_cart</span></a>
 </div>
 </div>
@@ -68,7 +69,10 @@
 <a href="product.html?id=orange-sofa">
 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlRDo5mIxDtTnxdVmpf-qhWnaF9skSOEDfCqvWF25S6fbsP--iBsbmROgNdyBUHxPvGL0U_3vRH5UR2PwtMIrud64e-xp94VbxKDKDaxA35Qaj8p5ViLcnHOeYdfvLe_DPvRh-TJZIEhBHt8wd0vXaGCQQfWG_FA7RTdlBW_WOZmMTGy3eI1zAP_TE7rgab7brfe7aVFjvV5k_w7shEJ2fnQZkS1Y21QP1X5XRc9WStK3NxgxdDZenqSLoXK6WO7gs5h5VAK_2xrKS" alt="Orange Sofa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
 </a>
-<button type="button" aria-label="Add Orange Comfort Sofa to cart" onclick="addToCart('orange-sofa')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+<button type="button" aria-label="Add to wishlist" onclick="toggleWishlist('orange-sofa')" data-product-id="orange-sofa" class="absolute top-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/50">
+<span class="material-icons-outlined">favorite_border</span>
+</button>
+<button type="button" aria-label="Add Orange Comfort Sofa to cart" onclick="addToCart('orange-sofa')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary/50">
 <span class="material-icons-outlined text-primary">add_shopping_cart</span>
 </button>
 </div>
@@ -81,7 +85,10 @@
 <a href="product.html?id=modern-grey-chair">
 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcCl_HShQbEnBAeBj3ODP5bxFBJgSrP-1x2JQzf9v_nK5Yx-GocQ-NdXSK-TEkZWj2TNNsARfbkLsltX5RW9sbdvPSVyDpehYZ6PxXxblu9F1SjzAXsk3nCEAC3tRyLGLLBxKJsLaRoNMQT3rHYE6EiFkKcUSYf6k8gnCdNKb9DxRGHY0KX2ipw0dm-9CzQmRxqiJk-yQQQGdUwr31aqOK_LFI3jrhCRx_lfY0T79fWxDqIPVDgHLk0CcOloVyQ8HYCfU4hHO2l7NO" alt="Modern Chair" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
 </a>
-<button type="button" aria-label="Add Modern Grey Chair to cart" onclick="addToCart('modern-grey-chair')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+<button type="button" aria-label="Add to wishlist" onclick="toggleWishlist('modern-grey-chair')" data-product-id="modern-grey-chair" class="absolute top-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/50">
+<span class="material-icons-outlined">favorite_border</span>
+</button>
+<button type="button" aria-label="Add Modern Grey Chair to cart" onclick="addToCart('modern-grey-chair')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary/50">
 <span class="material-icons-outlined text-primary">add_shopping_cart</span>
 </button>
 </div>
@@ -94,7 +101,10 @@
 <a href="product.html?id=classic-desk-chair">
 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4irLobIHUFAGL4oSiOizYASjfLH6WkD3nI5KuoE0QQHwitjjaEC-6kJpFL3I6z0HCchx3vkrC5LxAzX8PZtGoCP_PoQvie1c_HkaaF6e0zywAyOWbB-6FFnHYuAIU_-fr5_yy1TVsOG1J4cjhqVEJbXcoBJNC6pXlm7dO_dJjApJ0S5Lv6Mi74oXNRMdID2ukcSsE0-hEYJurOnoNq43jKmRLzZRoWYkoLWLGUaK7H9dqVepD2xIdczoC_GI_jGivvF3wqgKJAxmv" alt="Classic Desk Chair" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
 </a>
-<button type="button" aria-label="Add Classic Desk Chair to cart" onclick="addToCart('classic-desk-chair')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+<button type="button" aria-label="Add to wishlist" onclick="toggleWishlist('classic-desk-chair')" data-product-id="classic-desk-chair" class="absolute top-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/50">
+<span class="material-icons-outlined">favorite_border</span>
+</button>
+<button type="button" aria-label="Add Classic Desk Chair to cart" onclick="addToCart('classic-desk-chair')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary/50">
 <span class="material-icons-outlined text-primary">add_shopping_cart</span>
 </button>
 </div>
@@ -107,7 +117,10 @@
 <a href="product.html?id=green-velvet-sofa">
 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfFsbXKnKVJtUOXk4Q6mEqf5k8xTz4ApIbKYU8JimWKjxjMfAzk2w3jisMG2DJxnen-gFI2iFNWlCRb9rj1M5me-S_5gsbd5nTb-SR1PptIvNJ5ytHYL8uvIUVTzQuhoGDegPQO_Co-1j6xyPiRXxcyLPr2XoVKU9ouB_h_R0rq56VjrSHn7HilKyJ3R0Sq0oQITqkJuJi2R8BLZBuFM760Rsg0mF_8a9s2nF0Ly9izU-lcYISrm7aEqWCBU_d0lCid9hs8QIxj7aY" alt="Green Velvet Sofa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
 </a>
-<button type="button" aria-label="Add Green Velvet Sofa to cart" onclick="addToCart('green-velvet-sofa')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+<button type="button" aria-label="Add to wishlist" onclick="toggleWishlist('green-velvet-sofa')" data-product-id="green-velvet-sofa" class="absolute top-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/50">
+<span class="material-icons-outlined">favorite_border</span>
+</button>
+<button type="button" aria-label="Add Green Velvet Sofa to cart" onclick="addToCart('green-velvet-sofa')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary/50">
 <span class="material-icons-outlined text-primary">add_shopping_cart</span>
 </button>
 </div>
