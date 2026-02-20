@@ -93,6 +93,13 @@
         </div>
       </div>
 
+      <div id="related-products" class="mt-20 hidden">
+          <h2 class="text-2xl font-bold mb-8">You Might Also Like</h2>
+          <div id="related-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              <!-- Related items injected here -->
+          </div>
+      </div>
+
       <div id="loading" class="text-center py-20 text-gray-500">
           Loading product...
       </div>
@@ -154,6 +161,82 @@
 
         loading.classList.add('hidden');
         container.classList.remove('hidden');
+
+        // Render Related Products
+        const relatedContainer = document.getElementById('related-products');
+        const relatedGrid = document.getElementById('related-products-grid');
+
+        const otherProducts = products.filter(p => p.id !== product.id);
+        const shuffled = otherProducts.sort(() => 0.5 - Math.random());
+        const selected = shuffled.slice(0, 3);
+
+        if (selected.length > 0) {
+            relatedGrid.innerHTML = '';
+            selected.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'group';
+
+                const imgContainer = document.createElement('div');
+                imgContainer.className = 'relative rounded-lg overflow-hidden aspect-square mb-4 bg-gray-100 dark:bg-gray-800';
+
+                const link = document.createElement('a');
+                link.href = `product.html?id=${p.id}`;
+
+                const img = document.createElement('img');
+                img.src = p.image;
+                img.alt = p.name;
+                img.className = 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-500';
+
+                link.appendChild(img);
+                imgContainer.appendChild(link);
+
+                // Wishlist button
+                const wishBtn = document.createElement('button');
+                wishBtn.type = 'button';
+                wishBtn.className = 'absolute top-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/50';
+                wishBtn.setAttribute('data-product-id', p.id);
+                wishBtn.onclick = () => wishlist.toggleWishlist(p.id);
+
+                const heartIcon = document.createElement('span');
+                heartIcon.className = 'material-icons-outlined';
+                heartIcon.textContent = wishlist.isInWishlist(p.id) ? 'favorite' : 'favorite_border';
+                if (wishlist.isInWishlist(p.id)) heartIcon.classList.add('text-primary');
+
+                wishBtn.appendChild(heartIcon);
+                imgContainer.appendChild(wishBtn);
+
+                // Add to cart button
+                const cartBtn = document.createElement('button');
+                cartBtn.type = 'button';
+                cartBtn.className = 'absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary/50';
+                cartBtn.onclick = () => {
+                    cart.addItem(p.id);
+                };
+                const cartIcon = document.createElement('span');
+                cartIcon.className = 'material-icons-outlined text-primary';
+                cartIcon.textContent = 'add_shopping_cart';
+                cartBtn.appendChild(cartIcon);
+                imgContainer.appendChild(cartBtn);
+
+                card.appendChild(imgContainer);
+
+                const titleLink = document.createElement('a');
+                titleLink.href = `product.html?id=${p.id}`;
+                const title = document.createElement('h3');
+                title.className = 'font-semibold text-lg hover:text-primary transition-colors';
+                title.textContent = p.name;
+                titleLink.appendChild(title);
+                card.appendChild(titleLink);
+
+                const price = document.createElement('p');
+                price.className = 'text-gray-600 dark:text-gray-400';
+                price.textContent = `$${p.price.toFixed(2)}`;
+                card.appendChild(price);
+
+                relatedGrid.appendChild(card);
+            });
+            relatedContainer.classList.remove('hidden');
+        }
       } else {
         loading.classList.add('hidden');
         notFound.classList.remove('hidden');

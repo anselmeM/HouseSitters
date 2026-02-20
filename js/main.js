@@ -81,8 +81,8 @@ function injectFooter() {
             <div>
               <h3 class="text-lg font-semibold text-white mb-4">Newsletter</h3>
               <p class="text-sm text-gray-400 mb-4">Subscribe to receive updates, access to exclusive deals, and more.</p>
-              <form class="flex gap-2" onsubmit="event.preventDefault();">
-                <input type="email" placeholder="Enter your email" class="w-full bg-gray-800 text-white rounded-md text-sm focus:ring-primary focus:border-primary placeholder-gray-500" style="border-color: #374151;">
+              <form class="flex gap-2" id="newsletter-form">
+                <input type="email" placeholder="Enter your email" class="w-full bg-gray-800 text-white rounded-md text-sm focus:ring-primary focus:border-primary placeholder-gray-500" style="border-color: #374151;" required>
                 <button type="submit" class="bg-primary text-white p-2 rounded-md hover:bg-orange-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
                   <span class="material-icons-outlined text-sm">send</span>
                 </button>
@@ -95,4 +95,21 @@ function injectFooter() {
         </div>
       </footer>
     `;
+
+    const newsletterForm = document.getElementById('newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const input = newsletterForm.querySelector('input[type="email"]');
+            if (input && input.value) {
+                // Use cart's toast if available, otherwise alert
+                if (typeof cart !== 'undefined' && cart.showToast) {
+                    cart.showToast('Thanks for subscribing!');
+                } else {
+                    alert('Thanks for subscribing!');
+                }
+                input.value = '';
+            }
+        });
+    }
 }
