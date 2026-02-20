@@ -74,9 +74,33 @@
           <a href="products.html" class="inline-block bg-primary text-white font-semibold py-3 px-8 rounded-md hover:bg-orange-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white">Discover Products</a>
       </div>
 
-      <div id="wishlist-content" class="hidden">
+      <div id="wishlist-content">
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="wishlist-items">
-              <!-- Wishlist items will be injected here -->
+              <!-- Loading Skeletons -->
+              <div class="animate-pulse bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+                <div class="aspect-square bg-gray-200 dark:bg-gray-700"></div>
+                <div class="p-4 space-y-3">
+                  <div class="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
+                  <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/4"></div>
+                  <div class="h-10 bg-gray-200 dark:bg-gray-700 rounded w-full"></div>
+                </div>
+              </div>
+              <div class="animate-pulse bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+                <div class="aspect-square bg-gray-200 dark:bg-gray-700"></div>
+                <div class="p-4 space-y-3">
+                  <div class="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
+                  <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/4"></div>
+                  <div class="h-10 bg-gray-200 dark:bg-gray-700 rounded w-full"></div>
+                </div>
+              </div>
+              <div class="animate-pulse bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+                <div class="aspect-square bg-gray-200 dark:bg-gray-700"></div>
+                <div class="p-4 space-y-3">
+                  <div class="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
+                  <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/4"></div>
+                  <div class="h-10 bg-gray-200 dark:bg-gray-700 rounded w-full"></div>
+                </div>
+              </div>
           </div>
       </div>
     </main>
@@ -115,14 +139,14 @@
             itemEl.innerHTML = `
                 <div class="relative aspect-square overflow-hidden">
                     <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                    <button type="button" aria-label="Remove form wishlist" onclick="removeFromWishlist('${product.id}')" class="absolute top-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md hover:text-red-500 transition-colors z-10">
+                    <button type="button" aria-label="Remove ${product.name} from wishlist" onclick="removeFromWishlist('${product.id}')" class="absolute top-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md hover:text-red-500 transition-colors z-10">
                         <span class="material-icons-outlined">close</span>
                     </button>
                 </div>
                 <div class="p-4">
                     <h3 class="font-semibold text-lg mb-2"><a href="product.html?id=${product.id}" class="hover:text-primary transition-colors">${product.name}</a></h3>
                     <p class="text-gray-600 dark:text-gray-400 mb-4">$${product.price.toFixed(2)}</p>
-                    <button onclick="addToCart('${product.id}')" class="w-full bg-primary text-white font-bold py-2 px-4 rounded hover:bg-orange-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                    <button onclick="addToCart('${product.id}')" aria-label="Add ${product.name} to cart" class="w-full bg-primary text-white font-bold py-2 px-4 rounded hover:bg-orange-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
                         Add to Cart
                     </button>
                 </div>

@@ -10,27 +10,32 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isExpanded) {
                 // Open menu
                 menu.classList.remove('invisible');
-                // distinct step to ensure transition triggers
+                // Use double requestAnimationFrame to ensure the remove 'invisible' has taken effect in layout
                 requestAnimationFrame(() => {
-                    menu.classList.remove('max-h-0', 'opacity-0');
-                    menu.classList.add('max-h-screen', 'opacity-100');
+                    requestAnimationFrame(() => {
+                        menu.classList.remove('max-h-0', 'opacity-0');
+                        menu.classList.add('max-h-screen', 'opacity-100');
+                    });
                 });
             } else {
                 // Close menu
                 menu.classList.remove('max-h-screen', 'opacity-100');
                 menu.classList.add('max-h-0', 'opacity-0');
 
-                // Wait for transition to finish before hiding completely
-                menu.addEventListener('transitionend', function onTransitionEnd(event) {
-                    if (event.target !== menu) return;
-                    if (!menu.classList.contains('opacity-100')) {
+                // Wait for transition duration (300ms) before hiding completely
+                // Using setTimeout is generally more robust than transitionend for simple UI states
+                setTimeout(() => {
+                    // Double check state hasn't changed during timeout
+                    if (btn.getAttribute('aria-expanded') === 'false') {
                         menu.classList.add('invisible');
                     }
-                    menu.removeEventListener('transitionend', onTransitionEnd);
-                });
+                }, 300);
             }
         });
     }
+
+    injectFooter();
+    initSearchBar();
 });
 
 function injectFooter() {
@@ -65,8 +70,8 @@ function injectFooter() {
                     <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
                     <p class="text-gray-400 mb-4">Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>
                     <form class="flex gap-2" onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
-                        <input type="email" placeholder="Enter your email" class="w-full rounded-md text-white focus:ring-primary focus:border-primary px-4 py-2" required style="background-color: #1f2937; border-color: #374151;">
-                        <button type="submit" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-orange-700 transition-colors">
+                        <input type="email" placeholder="Enter your email" aria-label="Email address" class="w-full rounded-md text-white focus:ring-primary focus:border-primary px-4 py-2" required style="background-color: #1f2937; border-color: #374151;">
+                        <button type="submit" aria-label="Subscribe" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-orange-700 transition-colors">
                             <span class="material-icons-outlined">send</span>
                         </button>
                     </form>
@@ -79,11 +84,6 @@ function injectFooter() {
     </footer>
     `;
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    injectFooter();
-    initSearchBar();
-});
 
 function initSearchBar() {
     const searchInputs = document.querySelectorAll('input[aria-label="Search products"]');
