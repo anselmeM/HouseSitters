@@ -13,7 +13,7 @@ const products = [
     name: "Modern Grey Chair",
     price: 249.00,
     category: "Chairs",
-    collections: ["workspace"],
+    collections: ["workspace", "minimalist"],
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBcCl_HShQbEnBAeBj3ODP5bxFBJgSrP-1x2JQzf9v_nK5Yx-GocQ-NdXSK-TEkZWj2TNNsARfbkLsltX5RW9sbdvPSVyDpehYZ6PxXxblu9F1SjzAXsk3nCEAC3tRyLGLLBxKJsLaRoNMQT3rHYE6EiFkKcUSYf6k8gnCdNKb9DxRGHY0KX2ipw0dm-9CzQmRxqiJk-yQQQGdUwr31aqOK_LFI3jrhCRx_lfY0T79fWxDqIPVDgHLk0CcOloVyQ8HYCfU4hHO2l7NO",
     description: "Sleek and sophisticated, this modern grey chair adds a touch of elegance to your home office or reading nook. Designed with ergonomic support and high-quality fabric."
   },
@@ -61,7 +61,7 @@ const products = [
     price: 382.50,
     originalPrice: 450.00,
     category: "Sofas",
-    collections: ["fall"],
+    collections: ["fall", "industrial"],
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBRU-lxLgoTh7ocFfAuj90pQt087undOY3_m8GHgXC-jzhzrLKaCTco85o386-g5z_fudezjtlYiLeApJTMlJRf91AeJtYPkRg0Hf4EbyZSLYlHcGrhAaw1lDRqKT8HgPC6P9vnn7qyywPAke9yox0ORxCG9rgIs8dEDZwax0h3j3943JiXzTTqv-_bu7f8CC4s-4NGp7g1rmgvxzFjnaQlWse1MCU0LDeeUOdlHInRd_V3JzDZSV8M9h24G62cxNte7yPnNtcCmlOV",
     description: "Build your dream seating area with this high-quality wooden sofa frame. Durable and stylish, it's the perfect foundation for custom cushions and upholstery."
   },
@@ -79,7 +79,7 @@ const products = [
     name: "Tufted White Armchair",
     price: 399.00,
     category: "Chairs",
-    collections: ["fall"],
+    collections: ["fall", "minimalist"],
     image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     description: "Elegant white armchair with tufted upholstery. Perfect for a cozy reading corner or as a sophisticated accent piece in your living room."
   },
@@ -97,7 +97,7 @@ const products = [
     name: "Modern Black Dining Chair",
     price: 129.00,
     category: "Chairs",
-    collections: ["dining", "workspace"],
+    collections: ["dining", "workspace", "minimalist"],
     image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     description: "Sleek and modern black dining chair. Durable and easy to clean, with a minimalist design that fits any contemporary dining room."
   },
@@ -127,6 +127,87 @@ const products = [
     collections: ["workspace"],
     image: "https://images.unsplash.com/photo-1595515106968-45d6252994e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     description: "Improve your posture and productivity with our adjustable standing desk. Features a motorized lift and a spacious desktop for all your work essentials."
+  },
+  {
+    id: "minimalist-sofa",
+    name: "Minimalist Beige Sofa",
+    price: 899.00,
+    category: "Sofas",
+    collections: ["minimalist"],
+    image: "https://images.unsplash.com/photo-1550226891-ef816aed4a98?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Clean lines and neutral tones define this minimalist sofa. A versatile piece that blends seamlessly into any modern living space."
+  },
+  {
+    id: "simple-coffee-table",
+    name: "Simple Coffee Table",
+    price: 249.00,
+    category: "Tables",
+    collections: ["minimalist"],
+    image: "https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Less is more with this simple coffee table. Its functional design and unembellished surface make it a staple for minimalist interiors."
+  },
+  {
+    id: "outdoor-lounge-chair",
+    name: "Teak Poolside Chair",
+    price: 349.00,
+    category: "Chairs",
+    collections: ["outdoor"],
+    image: "https://images.unsplash.com/photo-1532323544230-7191fd51bc1b?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    description: "Relax by the pool or on your patio with this durable teak lounge chair. Weather-resistant and stylish, perfect for outdoor living."
+  },
+  {
+    id: "patio-dining-set",
+    name: "Patio Dining Set",
+    price: 999.00,
+    category: "Tables",
+    collections: ["outdoor"],
+    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Enjoy alfresco dining with this complete patio set. Includes a large table and matching chairs, designed to withstand the elements."
+  },
+  {
+    id: "industrial-shelving",
+    name: "Metal Pipe Shelving",
+    price: 459.00,
+    category: "Storage",
+    collections: ["industrial", "workspace"],
+    image: "https://images.unsplash.com/photo-1594620302200-9a762244a156?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Add an industrial edge to your room with this metal pipe shelving unit. Robust and practical, it's ideal for books, plants, and display items."
+  },
+  {
+    id: "loft-coffee-table",
+    name: "Reclaimed Wood Table",
+    price: 399.00,
+    category: "Tables",
+    collections: ["industrial"],
+    image: "https://images.unsplash.com/photo-1532372320572-cda25653a26d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Crafted from reclaimed wood and metal, this coffee table brings history and texture to your industrial-chic living room."
+  },
+  {
+    id: "concrete-planter",
+    name: "Concrete Planter",
+    price: 89.00,
+    category: "Decor",
+    collections: ["industrial", "minimalist"],
+    image: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "A modern concrete planter that adds a raw, industrial touch to your indoor garden. Perfect for succulents or statement plants."
+  },
+  {
+    id: "pendant-light",
+    name: "Geometric Pendant Light",
+    price: 149.00,
+    category: "Lighting",
+    collections: ["lighting", "industrial"],
+    image: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Illuminate your space with this geometric pendant light. Its open metal frame casts intriguing shadows and fits perfectly in modern lofts."
+  },
+  {
+    id: "table-lamp",
+    name: "Ceramic Table Lamp",
+    price: 99.00,
+    category: "Lighting",
+    collections: ["lighting", "minimalist"],
+    image: "https://images.unsplash.com/photo-1515948725-edac7b5bb0fc?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+    description: "A simple yet elegant ceramic table lamp. Provides a soft, ambient glow that enhances the mood of any bedroom or living area."
   }
 ];
 
