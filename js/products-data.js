@@ -50,6 +50,41 @@ const products = [
     originalPrice: 450.00,
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBRU-lxLgoTh7ocFfAuj90pQt087undOY3_m8GHgXC-jzhzrLKaCTco85o386-g5z_fudezjtlYiLeApJTMlJRf91AeJtYPkRg0Hf4EbyZSLYlHcGrhAaw1lDRqKT8HgPC6P9vnn7qyywPAke9yox0ORxCG9rgIs8dEDZwax0h3j3943JiXzTTqv-_bu7f8CC4s-4NGp7g1rmgvxzFjnaQlWse1MCU0LDeeUOdlHInRd_V3JzDZSV8M9h24G62cxNte7yPnNtcCmlOV",
     description: "Build your dream seating area with this high-quality wooden sofa frame. Durable and stylish, it's the perfect foundation for custom cushions and upholstery."
+  },
+  {
+    id: "teal-velvet-sofa",
+    name: "Mid-Century Teal Sofa",
+    price: 1299.00,
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "A stunning teal velvet sofa with a mid-century modern design. Comfortable and stylish, it adds a touch of retro charm to any living space."
+  },
+  {
+    id: "white-tufted-chair",
+    name: "Tufted White Armchair",
+    price: 399.00,
+    image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Elegant white armchair with tufted upholstery. Perfect for a cozy reading corner or as a sophisticated accent piece in your living room."
+  },
+  {
+    id: "rustic-wood-table",
+    name: "Rustic Wood Side Table",
+    price: 149.00,
+    image: "https://images.unsplash.com/photo-1532372320572-cda25653a26d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Handcrafted rustic wood side table. Features a natural finish and sturdy construction, bringing warmth and character to your home."
+  },
+  {
+    id: "black-dining-chair",
+    name: "Modern Black Dining Chair",
+    price: 129.00,
+    image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Sleek and modern black dining chair. Durable and easy to clean, with a minimalist design that fits any contemporary dining room."
+  },
+  {
+    id: "yellow-armchair",
+    name: "Sunny Yellow Armchair",
+    price: 349.00,
+    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    description: "Brighten up your space with this cheerful yellow armchair. Comfortable seating with a pop of color that instantly lifts the mood of any room."
   }
 ];
 

@@ -8,6 +8,8 @@
 <link href="css/style.css" rel="stylesheet"/>
 <script src="js/cart.js"></script>
 <script src="js/wishlist.js"></script>
+<script src="js/products-data.js"></script>
+<script src="js/products.js" defer></script>
 <script src="js/main.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,71 +64,8 @@
 </header>
 <main class="py-8">
 <h1 class="text-4xl font-bold mb-8">Our Products</h1>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-<!-- Product 1 -->
-<div class="group">
-<div class="relative rounded-lg overflow-hidden aspect-square mb-4">
-<a href="product.html?id=orange-sofa">
-<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlRDo5mIxDtTnxdVmpf-qhWnaF9skSOEDfCqvWF25S6fbsP--iBsbmROgNdyBUHxPvGL0U_3vRH5UR2PwtMIrud64e-xp94VbxKDKDaxA35Qaj8p5ViLcnHOeYdfvLe_DPvRh-TJZIEhBHt8wd0vXaGCQQfWG_FA7RTdlBW_WOZmMTGy3eI1zAP_TE7rgab7brfe7aVFjvV5k_w7shEJ2fnQZkS1Y21QP1X5XRc9WStK3NxgxdDZenqSLoXK6WO7gs5h5VAK_2xrKS" alt="Orange Sofa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-</a>
-<button type="button" class="wishlist-toggle absolute top-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity focus:opacity-100 z-10" data-product-id="orange-sofa" onclick="toggleWishlist('orange-sofa')" aria-label="Add to wishlist">
-<span class="material-icons-outlined text-gray-400">favorite_border</span>
-</button>
-<button type="button" aria-label="Add Orange Comfort Sofa to cart" onclick="addToCart('orange-sofa')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
-<span class="material-icons-outlined text-primary">add_shopping_cart</span>
-</button>
-</div>
-<a href="product.html?id=orange-sofa"><h3 class="font-semibold text-lg hover:text-primary transition-colors">Orange Comfort Sofa</h3></a>
-<p class="text-gray-600 dark:text-gray-400">$899.00</p>
-</div>
-<!-- Product 2 -->
-<div class="group">
-<div class="relative rounded-lg overflow-hidden aspect-square mb-4">
-<a href="product.html?id=modern-grey-chair">
-<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcCl_HShQbEnBAeBj3ODP5bxFBJgSrP-1x2JQzf9v_nK5Yx-GocQ-NdXSK-TEkZWj2TNNsARfbkLsltX5RW9sbdvPSVyDpehYZ6PxXxblu9F1SjzAXsk3nCEAC3tRyLGLLBxKJsLaRoNMQT3rHYE6EiFkKcUSYf6k8gnCdNKb9DxRGHY0KX2ipw0dm-9CzQmRxqiJk-yQQQGdUwr31aqOK_LFI3jrhCRx_lfY0T79fWxDqIPVDgHLk0CcOloVyQ8HYCfU4hHO2l7NO" alt="Modern Chair" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-</a>
-<button type="button" class="wishlist-toggle absolute top-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity focus:opacity-100 z-10" data-product-id="modern-grey-chair" onclick="toggleWishlist('modern-grey-chair')" aria-label="Add to wishlist">
-<span class="material-icons-outlined text-gray-400">favorite_border</span>
-</button>
-<button type="button" aria-label="Add Modern Grey Chair to cart" onclick="addToCart('modern-grey-chair')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
-<span class="material-icons-outlined text-primary">add_shopping_cart</span>
-</button>
-</div>
-<a href="product.html?id=modern-grey-chair"><h3 class="font-semibold text-lg hover:text-primary transition-colors">Modern Grey Chair</h3></a>
-<p class="text-gray-600 dark:text-gray-400">$249.00</p>
-</div>
-<!-- Product 3 -->
-<div class="group">
-<div class="relative rounded-lg overflow-hidden aspect-square mb-4">
-<a href="product.html?id=classic-desk-chair">
-<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4irLobIHUFAGL4oSiOizYASjfLH6WkD3nI5KuoE0QQHwitjjaEC-6kJpFL3I6z0HCchx3vkrC5LxAzX8PZtGoCP_PoQvie1c_HkaaF6e0zywAyOWbB-6FFnHYuAIU_-fr5_yy1TVsOG1J4cjhqVEJbXcoBJNC6pXlm7dO_dJjApJ0S5Lv6Mi74oXNRMdID2ukcSsE0-hEYJurOnoNq43jKmRLzZRoWYkoLWLGUaK7H9dqVepD2xIdczoC_GI_jGivvF3wqgKJAxmv" alt="Classic Desk Chair" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-</a>
-<button type="button" class="wishlist-toggle absolute top-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity focus:opacity-100 z-10" data-product-id="classic-desk-chair" onclick="toggleWishlist('classic-desk-chair')" aria-label="Add to wishlist">
-<span class="material-icons-outlined text-gray-400">favorite_border</span>
-</button>
-<button type="button" aria-label="Add Classic Desk Chair to cart" onclick="addToCart('classic-desk-chair')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
-<span class="material-icons-outlined text-primary">add_shopping_cart</span>
-</button>
-</div>
-<a href="product.html?id=classic-desk-chair"><h3 class="font-semibold text-lg hover:text-primary transition-colors">Classic Desk Chair</h3></a>
-<p class="text-gray-600 dark:text-gray-400">$199.00</p>
-</div>
-<!-- Product 4 -->
-<div class="group">
-<div class="relative rounded-lg overflow-hidden aspect-square mb-4">
-<a href="product.html?id=green-velvet-sofa">
-<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfFsbXKnKVJtUOXk4Q6mEqf5k8xTz4ApIbKYU8JimWKjxjMfAzk2w3jisMG2DJxnen-gFI2iFNWlCRb9rj1M5me-S_5gsbd5nTb-SR1PptIvNJ5ytHYL8uvIUVTzQuhoGDegPQO_Co-1j6xyPiRXxcyLPr2XoVKU9ouB_h_R0rq56VjrSHn7HilKyJ3R0Sq0oQITqkJuJi2R8BLZBuFM760Rsg0mF_8a9s2nF0Ly9izU-lcYISrm7aEqWCBU_d0lCid9hs8QIxj7aY" alt="Green Velvet Sofa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-</a>
-<button type="button" class="wishlist-toggle absolute top-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity focus:opacity-100 z-10" data-product-id="green-velvet-sofa" onclick="toggleWishlist('green-velvet-sofa')" aria-label="Add to wishlist">
-<span class="material-icons-outlined text-gray-400">favorite_border</span>
-</button>
-<button type="button" aria-label="Add Green Velvet Sofa to cart" onclick="addToCart('green-velvet-sofa')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
-<span class="material-icons-outlined text-primary">add_shopping_cart</span>
-</button>
-</div>
-<a href="product.html?id=green-velvet-sofa"><h3 class="font-semibold text-lg hover:text-primary transition-colors">Green Velvet Sofa</h3></a>
-<p class="text-gray-600 dark:text-gray-400">$1,199.00</p>
-</div>
+<div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+  <!-- Products will be dynamically inserted here by js/products.js -->
 </div>
 </main>
 </div>
