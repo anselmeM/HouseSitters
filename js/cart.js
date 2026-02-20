@@ -21,6 +21,32 @@ const cart = {
     this.showToast('Item added to cart');
   },
 
+  removeItem(productId) {
+    const items = this.getItems();
+    const updatedItems = items.filter(item => item.id !== productId);
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(updatedItems));
+    this.updateCartCount();
+  },
+
+  updateQuantity(productId, quantity) {
+    const items = this.getItems();
+    const item = items.find(item => item.id === productId);
+    if (item) {
+      item.quantity = parseInt(quantity);
+      if (item.quantity <= 0) {
+        this.removeItem(productId);
+        return;
+      }
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
+      this.updateCartCount();
+    }
+  },
+
+  clearCart() {
+    localStorage.removeItem(CART_STORAGE_KEY);
+    this.updateCartCount();
+  },
+
   getTotalCount() {
     const items = this.getItems();
     return items.reduce((total, item) => total + item.quantity, 0);
