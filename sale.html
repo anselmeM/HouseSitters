@@ -7,6 +7,7 @@
 <title>SALE - Modern Furniture &amp; Home Decor</title>
 <link href="css/style.css" rel="stylesheet"/>
 <script src="js/cart.js"></script>
+<script src="js/wishlist.js"></script>
 <script src="js/main.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,7 +46,7 @@
 </div>
 <div class="flex items-center space-x-4 text-xl text-gray-600 dark:text-gray-400">
 <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="#" aria-label="Account" title="Account"><span class="material-icons-outlined">person_outline</span></a>
-<a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="#" aria-label="Favorites" title="Favorites"><span class="material-icons-outlined">favorite_border</span></a>
+<a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow relative" href="wishlist.html" aria-label="Favorites" title="Favorites"><span class="material-icons-outlined">favorite_border</span></a>
 <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="cart.html" aria-label="Shopping cart" title="Shopping cart"><span class="material-icons-outlined">shopping_cart</span></a>
 </div>
 </div>
@@ -72,6 +73,9 @@
 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTjCKCSdA0ilutuZuOXK3s0caS8XBxFtd7DG-58hQoYuPrZKZseWWwPATR0-SJPuFYnIVYf6Oqe7zONwrVoVkptn2VxAfok-y9oC9IEtrauupRHUN_fg2J13w-9EMattszZyjzRUh3EujaniH-kWDCGwTI1hHuh6KM7eKwDHmNZfsgsOy7CMkcoZx0GS1NOM1XUStajCpdyEJ0CGAp1dv04npsVJx_Lybt_Y-GpaJnqAibFQPY_QesZuytUzdLQ1-kX9QNILG949Uy" alt="Bookshelf" class="w-full h-full object-cover">
 </a>
 <div class="absolute top-4 left-4 bg-red-500 text-white font-bold px-3 py-1 rounded">-30%</div>
+<button type="button" class="wishlist-toggle absolute top-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity focus:opacity-100 z-10" data-product-id="modern-bookshelf" onclick="toggleWishlist('modern-bookshelf')" aria-label="Add to wishlist">
+<span class="material-icons-outlined text-gray-400">favorite_border</span>
+</button>
 <button type="button" aria-label="Add Modern Bookshelf to cart" onclick="addToCart('modern-bookshelf')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
 <span class="material-icons-outlined text-primary">add_shopping_cart</span>
 </button>
@@ -89,6 +93,9 @@
 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcCl_HShQbEnBAeBj3ODP5bxFBJgSrP-1x2JQzf9v_nK5Yx-GocQ-NdXSK-TEkZWj2TNNsARfbkLsltX5RW9sbdvPSVyDpehYZ6PxXxblu9F1SjzAXsk3nCEAC3tRyLGLLBxKJsLaRoNMQT3rHYE6EiFkKcUSYf6k8gnCdNKb9DxRGHY0KX2ipw0dm-9CzQmRxqiJk-yQQQGdUwr31aqOK_LFI3jrhCRx_lfY0T79fWxDqIPVDgHLk0CcOloVyQ8HYCfU4hHO2l7NO" alt="Chair" class="w-full h-full object-cover">
 </a>
 <div class="absolute top-4 left-4 bg-red-500 text-white font-bold px-3 py-1 rounded">-20%</div>
+<button type="button" class="wishlist-toggle absolute top-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity focus:opacity-100 z-10" data-product-id="accent-chair" onclick="toggleWishlist('accent-chair')" aria-label="Add to wishlist">
+<span class="material-icons-outlined text-gray-400">favorite_border</span>
+</button>
 <button type="button" aria-label="Add Accent Chair to cart" onclick="addToCart('accent-chair')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
 <span class="material-icons-outlined text-primary">add_shopping_cart</span>
 </button>
@@ -106,6 +113,9 @@
 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRU-lxLgoTh7ocFfAuj90pQt087undOY3_m8GHgXC-jzhzrLKaCTco85o386-g5z_fudezjtlYiLeApJTMlJRf91AeJtYPkRg0Hf4EbyZSLYlHcGrhAaw1lDRqKT8HgPC6P9vnn7qyywPAke9yox0ORxCG9rgIs8dEDZwax0h3j3943JiXzTTqv-_bu7f8CC4s-4NGp7g1rmgvxzFjnaQlWse1MCU0LDeeUOdlHInRd_V3JzDZSV8M9h24G62cxNte7yPnNtcCmlOV" alt="Sofa Frame" class="w-full h-full object-cover">
 </a>
 <div class="absolute top-4 left-4 bg-red-500 text-white font-bold px-3 py-1 rounded">-15%</div>
+<button type="button" class="wishlist-toggle absolute top-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity focus:opacity-100 z-10" data-product-id="wooden-sofa-frame" onclick="toggleWishlist('wooden-sofa-frame')" aria-label="Add to wishlist">
+<span class="material-icons-outlined text-gray-400">favorite_border</span>
+</button>
 <button type="button" aria-label="Add Wooden Sofa Frame to cart" onclick="addToCart('wooden-sofa-frame')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
 <span class="material-icons-outlined text-primary">add_shopping_cart</span>
 </button>
