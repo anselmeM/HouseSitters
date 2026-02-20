@@ -1,7 +1,7 @@
 {
   "name": "app",
   "version": "1.0.0",
-  "description": "Bootstrap Website Header  https://anselmem.github.io/HouseSitters/#",
+  "description": "A modern furniture and home decor website.",
   "main": "index.js",
   "directories": {
     "test": "tests"
@@ -9,7 +9,7 @@
   "scripts": {
     "build": "tailwindcss -i ./input.css -o ./css/style.css",
     "watch": "tailwindcss -i ./input.css -o ./css/style.css --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "pytest"
   },
   "repository": {
     "type": "git",
