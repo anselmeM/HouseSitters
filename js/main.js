@@ -60,12 +60,12 @@ function injectFooter() {
     footerContainer.innerHTML = `
       <footer class="bg-gray-800 text-gray-400 py-8" style="margin-top: auto;">
         <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 text-center md:text-left">
             <!-- Brand -->
             <div class="space-y-4">
               <h2 class="text-2xl font-bold text-white">Furni.</h2>
               <p class="text-sm text-gray-400">Crafting modern living spaces with timeless furniture designs.</p>
-              <div class="flex space-x-4">
+              <div class="flex space-x-4 justify-center md:justify-start">
                 <a href="#" aria-label="Facebook" class="hover:text-primary transition-colors"><span class="material-icons-outlined">facebook</span></a>
                 <a href="#" aria-label="Instagram" class="hover:text-primary transition-colors"><span class="material-icons-outlined">camera_alt</span></a>
                 <a href="#" aria-label="Twitter" class="hover:text-primary transition-colors"><span class="material-icons-outlined">alternate_email</span></a>
