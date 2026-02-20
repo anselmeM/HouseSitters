@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <button type="button" class="wishlist-toggle absolute top-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity focus:opacity-100 z-10" data-product-id="${product.id}" onclick="toggleWishlist('${product.id}')" aria-label="Add to wishlist">
                   <span class="material-icons-outlined text-gray-400">favorite_border</span>
                 </button>
-                <button type="button" aria-label="Add ${product.name} to cart" onclick="addToCart('${product.id}')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+                <button type="button" aria-label="Add ${product.name} to cart" onclick="addToCart('${product.id}')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity focus:opacity-100">
                   <span class="material-icons-outlined text-primary">add_shopping_cart</span>
                 </button>
               </div>
