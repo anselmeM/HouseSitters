@@ -119,8 +119,30 @@
             });
         }
 
+        // Check for URL parameters (e.g. ?category=Lighting)
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get('category');
+        const searchTerm = urlParams.get('search');
+
+        // Filter products
+        let displayedProducts = products;
+
+        if (category) {
+            displayedProducts = displayedProducts.filter(p => p.category === category);
+            document.querySelector('h1').textContent = category; // Update title
+        }
+
+        if (searchTerm) {
+             const term = searchTerm.toLowerCase();
+             displayedProducts = displayedProducts.filter(p =>
+                p.name.toLowerCase().includes(term) ||
+                p.description.toLowerCase().includes(term)
+            );
+            if (searchInput) searchInput.value = searchTerm;
+        }
+
         // Initial render
-        renderProducts(products);
+        renderProducts(displayedProducts);
 
         // Search functionality
         if (searchInput) {
@@ -171,7 +193,7 @@
           <h3 class="font-bold text-gray-900 dark:text-white mb-4">Support</h3>
           <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
             <li><a href="#" class="hover:text-primary transition-colors">Help Center</a></li>
-            <li><a href="#" class="hover:text-primary transition-colors">Shipping </body> Returns</a></li>
+            <li><a href="#" class="hover:text-primary transition-colors">Shipping & Returns</a></li>
             <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
             <li><a href="#" class="hover:text-primary transition-colors">Terms of Service</a></li>
           </ul>

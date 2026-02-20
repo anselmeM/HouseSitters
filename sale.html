@@ -1,126 +1,133 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta name="referrer" content="strict-origin-when-cross-origin"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SALE - Modern Furniture &amp; Home Decor</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-<script src="js/tailwind-config.js"></script>
-<script src="js/cart.js"></script>
-<script src="js/main.js" defer></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
-<style>
-        .material-icons-outlined {
-            font-size: inherit;
-        }
-        #cart-toast { transition: opacity 0.3s ease-in-out; }
-    </style>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="referrer" content="strict-origin-when-cross-origin"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Sale - Modern Furniture &amp; Home Decor</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <script src="js/tailwind-config.js"></script>
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+  <style>
+      .material-icons-outlined {
+          font-size: inherit;
+      }
+      #cart-toast { transition: opacity 0.3s ease-in-out; }
+  </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
-<div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-<header class="py-6 relative z-50">
-<div class="flex items-center justify-between">
-<div class="flex items-center space-x-8">
-<button id="mobile-menu-btn" class="md:hidden text-gray-600 dark:text-gray-400 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" aria-label="Open menu" aria-expanded="false">
-<span class="material-icons-outlined text-3xl">menu</span>
-</button>
-<a class="text-2xl font-bold text-gray-900 dark:text-white rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="index.html">Furni.</a>
-<nav class="hidden md:flex items-center space-x-6">
-<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="products.html">Products</a>
-<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="rooms.html">Rooms</a>
-<a class="text-sm font-medium text-primary dark:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="sale.html">SALE</a>
-</nav>
-</div>
-<div class="flex-1 max-w-sm mx-8 hidden lg:block">
-<div class="relative">
-<span class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
-<input class="w-full rounded-full border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 py-2.5 pl-10 pr-4 text-sm focus:border-primary focus:ring-primary dark:focus:border-primary dark:focus:ring-primary" placeholder="What are you looking for?" type="text" aria-label="Search products"/>
-<button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" aria-label="Search by image" title="Search by image">
-<span class="material-icons-outlined">photo_camera</span>
-</button>
-</div>
-</div>
-<div class="flex items-center space-x-4 text-xl text-gray-600 dark:text-gray-400">
-<a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="#" aria-label="Account" title="Account"><span class="material-icons-outlined">person_outline</span></a>
-<a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="#" aria-label="Favorites" title="Favorites"><span class="material-icons-outlined">favorite_border</span></a>
-<a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="cart.html" aria-label="Shopping cart" title="Shopping cart"><span class="material-icons-outlined">shopping_cart</span></a>
-</div>
-</div>
+  <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+    <header class="py-6 relative z-50">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-8">
+          <button id="mobile-menu-btn" class="md:hidden text-gray-600 dark:text-gray-400 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" aria-label="Open menu" aria-expanded="false">
+            <span class="material-icons-outlined text-3xl">menu</span>
+          </button>
+          <a class="text-2xl font-bold text-gray-900 dark:text-white rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="index.html">Furni.</a>
+          <nav class="hidden md:flex items-center space-x-6">
+            <a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="products.html">Products</a>
+            <a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="rooms.html">Rooms</a>
+            <a class="text-sm font-medium text-primary dark:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="sale.html">SALE</a>
+          </nav>
+        </div>
+        <div class="flex-1 max-w-sm mx-8 hidden lg:block">
+          <div class="relative">
+            <span class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+            <input class="w-full rounded-full border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 py-2.5 pl-10 pr-4 text-sm focus:border-primary focus:ring-primary dark:focus:border-primary dark:focus:ring-primary" placeholder="What are you looking for?" type="text" aria-label="Search products"/>
+            <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" aria-label="Search by image" title="Search by image">
+              <span class="material-icons-outlined">photo_camera</span>
+            </button>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4 text-xl text-gray-600 dark:text-gray-400">
+          <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="#" aria-label="Account" title="Account"><span class="material-icons-outlined">person_outline</span></a>
+          <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="#" aria-label="Favorites" title="Favorites"><span class="material-icons-outlined">favorite_border</span></a>
+          <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="cart.html" aria-label="Shopping cart" title="Shopping cart">
+              <span class="material-icons-outlined">shopping_cart</span>
+              <!-- Badge injected by JS -->
+          </a>
+        </div>
+      </div>
 
-<!-- Mobile Menu -->
-<div id="mobile-menu" class="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-800 shadow-lg rounded-b-lg overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 invisible transform origin-top z-40">
-<nav class="flex flex-col p-6 space-y-4">
-<a class="text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="products.html">Products</a>
-<a class="text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="rooms.html">Rooms</a>
-<a class="text-lg font-medium text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="sale.html">SALE</a>
-</nav>
-</div>
-</header>
-<main class="py-8">
-<div class="bg-red-600 text-white p-8 rounded-lg mb-12 text-center">
-<h1 class="text-5xl font-bold mb-4">SEASONAL SALE</h1>
-<p class="text-xl">Up to 50% off on selected items</p>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Sale Item 1 -->
-<div class="group border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden relative">
-<div class="relative aspect-video">
-<a href="product.html?id=modern-bookshelf">
-<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTjCKCSdA0ilutuZuOXK3s0caS8XBxFtd7DG-58hQoYuPrZKZseWWwPATR0-SJPuFYnIVYf6Oqe7zONwrVoVkptn2VxAfok-y9oC9IEtrauupRHUN_fg2J13w-9EMattszZyjzRUh3EujaniH-kWDCGwTI1hHuh6KM7eKwDHmNZfsgsOy7CMkcoZx0GS1NOM1XUStajCpdyEJ0CGAp1dv04npsVJx_Lybt_Y-GpaJnqAibFQPY_QesZuytUzdLQ1-kX9QNILG949Uy" alt="Bookshelf" class="w-full h-full object-cover">
-</a>
-<div class="absolute top-4 left-4 bg-red-500 text-white font-bold px-3 py-1 rounded">-30%</div>
-<button type="button" aria-label="Add Modern Bookshelf to cart" onclick="addToCart('modern-bookshelf')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
-<span class="material-icons-outlined text-primary">add_shopping_cart</span>
-</button>
-</div>
-<div class="p-4">
-<a href="product.html?id=modern-bookshelf"><h3 class="font-semibold text-lg hover:text-primary transition-colors">Modern Bookshelf</h3></a>
-<p class="text-gray-500 line-through">$299.00</p>
-<p class="text-red-600 font-bold text-xl">$209.30</p>
-</div>
-</div>
-<!-- Sale Item 2 -->
-<div class="group border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden relative">
-<div class="relative aspect-video">
-<a href="product.html?id=accent-chair">
-<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcCl_HShQbEnBAeBj3ODP5bxFBJgSrP-1x2JQzf9v_nK5Yx-GocQ-NdXSK-TEkZWj2TNNsARfbkLsltX5RW9sbdvPSVyDpehYZ6PxXxblu9F1SjzAXsk3nCEAC3tRyLGLLBxKJsLaRoNMQT3rHYE6EiFkKcUSYf6k8gnCdNKb9DxRGHY0KX2ipw0dm-9CzQmRxqiJk-yQQQGdUwr31aqOK_LFI3jrhCRx_lfY0T79fWxDqIPVDgHLk0CcOloVyQ8HYCfU4hHO2l7NO" alt="Chair" class="w-full h-full object-cover">
-</a>
-<div class="absolute top-4 left-4 bg-red-500 text-white font-bold px-3 py-1 rounded">-20%</div>
-<button type="button" aria-label="Add Accent Chair to cart" onclick="addToCart('accent-chair')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
-<span class="material-icons-outlined text-primary">add_shopping_cart</span>
-</button>
-</div>
-<div class="p-4">
-<a href="product.html?id=accent-chair"><h3 class="font-semibold text-lg hover:text-primary transition-colors">Accent Chair</h3></a>
-<p class="text-gray-500 line-through">$199.00</p>
-<p class="text-red-600 font-bold text-xl">$159.20</p>
-</div>
-</div>
-<!-- Sale Item 3 -->
-<div class="group border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden relative">
-<div class="relative aspect-video">
-<a href="product.html?id=wooden-sofa-frame">
-<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRU-lxLgoTh7ocFfAuj90pQt087undOY3_m8GHgXC-jzhzrLKaCTco85o386-g5z_fudezjtlYiLeApJTMlJRf91AeJtYPkRg0Hf4EbyZSLYlHcGrhAaw1lDRqKT8HgPC6P9vnn7qyywPAke9yox0ORxCG9rgIs8dEDZwax0h3j3943JiXzTTqv-_bu7f8CC4s-4NGp7g1rmgvxzFjnaQlWse1MCU0LDeeUOdlHInRd_V3JzDZSV8M9h24G62cxNte7yPnNtcCmlOV" alt="Sofa Frame" class="w-full h-full object-cover">
-</a>
-<div class="absolute top-4 left-4 bg-red-500 text-white font-bold px-3 py-1 rounded">-15%</div>
-<button type="button" aria-label="Add Wooden Sofa Frame to cart" onclick="addToCart('wooden-sofa-frame')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
-<span class="material-icons-outlined text-primary">add_shopping_cart</span>
-</button>
-</div>
-<div class="p-4">
-<a href="product.html?id=wooden-sofa-frame"><h3 class="font-semibold text-lg hover:text-primary transition-colors">Wooden Sofa Frame</h3></a>
-<p class="text-gray-500 line-through">$450.00</p>
-<p class="text-red-600 font-bold text-xl">$382.50</p>
-</div>
-</div>
-</div>
-</main>
-</div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-800 shadow-lg rounded-b-lg overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 invisible transform origin-top z-40">
+        <nav class="flex flex-col p-6 space-y-4">
+          <a class="text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="products.html">Products</a>
+          <a class="text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="rooms.html">Rooms</a>
+          <a class="text-lg font-medium text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="sale.html">SALE</a>
+        </nav>
+      </div>
+    </header>
 
+    <main class="py-8">
+      <div class="bg-red-600 rounded-lg p-12 text-center text-white mb-12">
+        <h1 class="text-5xl font-bold mb-4">Seasonal Sale</h1>
+        <p class="text-xl opacity-90">Up to 50% off on selected items</p>
+      </div>
 
+      <div id="sale-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Sale Products will be injected here -->
+      </div>
+
+      <div id="no-sale" class="hidden text-center py-12">
+        <h2 class="text-xl font-medium text-gray-600 dark:text-gray-400">No items currently on sale. Check back later!</h2>
+      </div>
+    </main>
+
+    <!-- Footer injected here -->
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const grid = document.getElementById('sale-grid');
+        const noSale = document.getElementById('no-sale');
+
+        // Filter products with originalPrice (indicating a sale)
+        const saleItems = products.filter(p => p.originalPrice && p.originalPrice > p.price);
+
+        if (saleItems.length === 0) {
+            grid.classList.add('hidden');
+            noSale.classList.remove('hidden');
+        } else {
+            grid.classList.remove('hidden');
+            noSale.classList.add('hidden');
+
+            saleItems.forEach(product => {
+                const discount = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
+
+                const el = document.createElement('div');
+                el.className = 'group';
+                el.innerHTML = `
+                    <div class="relative rounded-lg overflow-hidden aspect-square mb-4 bg-gray-100 dark:bg-gray-800">
+                        <a href="product.html?id=${product.id}">
+                            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                        </a>
+                        <div class="absolute top-4 left-4 bg-red-500 text-white font-bold px-3 py-1 rounded-md shadow-sm">
+                            -${discount}%
+                        </div>
+                        <button type="button" aria-label="Add ${product.name} to cart" onclick="addToCart('${product.id}')" class="absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <span class="material-icons-outlined text-primary">add_shopping_cart</span>
+                        </button>
+                    </div>
+                    <a href="product.html?id=${product.id}">
+                        <h3 class="font-semibold text-lg hover:text-primary transition-colors">${product.name}</h3>
+                    </a>
+                    <div class="flex items-center gap-2">
+                        <p class="text-red-600 font-bold">$${product.price.toFixed(2)}</p>
+                        <p class="text-gray-400 text-sm line-through">$${product.originalPrice.toFixed(2)}</p>
+                    </div>
+                `;
+                grid.appendChild(el);
+            });
+        }
+    });
+  </script>
   <footer class="bg-gray-100 dark:bg-gray-800 pt-16 pb-8 mt-12">
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
@@ -156,7 +163,7 @@
           <h3 class="font-bold text-gray-900 dark:text-white mb-4">Support</h3>
           <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
             <li><a href="#" class="hover:text-primary transition-colors">Help Center</a></li>
-            <li><a href="#" class="hover:text-primary transition-colors">Shipping </body> Returns</a></li>
+            <li><a href="#" class="hover:text-primary transition-colors">Shipping & Returns</a></li>
             <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
             <li><a href="#" class="hover:text-primary transition-colors">Terms of Service</a></li>
           </ul>
@@ -179,4 +186,5 @@
       </div>
     </div>
   </footer>
-</body></html>
+</body>
+</html>
