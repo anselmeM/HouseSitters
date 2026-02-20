@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="referrer" content="strict-origin-when-cross-origin"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta name="description" content="Create a new Furni account to start shopping."/>
+  <title>Register - Modern Furniture &amp; Home Decor</title>
+  <link href="css/style.css" rel="stylesheet"/>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/main.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+  <style>
+      .material-icons-outlined { font-size: inherit; }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+  <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+    <header class="py-6 relative z-50">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-8">
+          <button id="mobile-menu-btn" class="md:hidden text-gray-600 dark:text-gray-400 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" aria-label="Open menu" aria-expanded="false">
+            <span class="material-icons-outlined text-3xl">menu</span>
+          </button>
+          <a class="text-2xl font-bold text-gray-900 dark:text-white rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="index.html">Furni.</a>
+          <nav class="hidden md:flex items-center space-x-6">
+            <a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="products.html">Products</a>
+            <a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="rooms.html">Rooms</a>
+            <a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="sale.html">SALE</a>
+          </nav>
+        </div>
+        <div class="flex-1 max-w-sm mx-8 hidden lg:block">
+            <!-- Search bar omitted for simplicity -->
+        </div>
+        <div class="flex items-center space-x-4 text-xl text-gray-600 dark:text-gray-400">
+          <a class="text-primary hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="login.html" aria-label="Account" title="Account"><span class="material-icons-outlined">person</span></a>
+          <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="wishlist.html" aria-label="Favorites" title="Favorites"><span class="material-icons-outlined">favorite_border</span></a>
+          <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="cart.html" aria-label="Shopping cart" title="Shopping cart">
+              <span class="material-icons-outlined">shopping_cart</span>
+          </a>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-800 shadow-lg rounded-b-lg overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 invisible transform origin-top z-40">
+        <nav class="flex flex-col p-6 space-y-4">
+          <a class="text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="products.html">Products</a>
+          <a class="text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="rooms.html">Rooms</a>
+          <a class="text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="sale.html">SALE</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="py-12 flex justify-center">
+      <div class="w-full max-w-md bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md border border-gray-100 dark:border-gray-700">
+        <h1 class="text-3xl font-bold mb-6 text-center">Create Account</h1>
+
+        <form id="register-form" class="space-y-6">
+          <div id="register-error" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+              <span class="block sm:inline" id="error-message"></span>
+          </div>
+
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name</label>
+            <input type="text" id="name" name="name" required class="w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-primary focus:ring-primary dark:bg-gray-700 dark:text-white" autocomplete="name">
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email Address</label>
+            <input type="email" id="email" name="email" required class="w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-primary focus:ring-primary dark:bg-gray-700 dark:text-white" autocomplete="email">
+          </div>
+          <div>
+            <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Password</label>
+            <input type="password" id="password" name="password" required class="w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-primary focus:ring-primary dark:bg-gray-700 dark:text-white" autocomplete="new-password">
+          </div>
+          <div>
+            <label for="confirm-password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" required class="w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-primary focus:ring-primary dark:bg-gray-700 dark:text-white" autocomplete="new-password">
+          </div>
+
+          <button type="submit" class="w-full bg-primary text-white font-bold py-3 rounded-md hover:bg-orange-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white">Register</button>
+        </form>
+
+        <p class="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
+            Already have an account? <a href="login.html" class="text-primary hover:underline font-medium">Sign in</a>
+        </p>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        cart.init();
+        wishlist.init();
+
+        const form = document.getElementById('register-form');
+        const errorDiv = document.getElementById('register-error');
+        const errorMsg = document.getElementById('error-message');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (password !== confirmPassword) {
+                errorMsg.textContent = "Passwords do not match.";
+                errorDiv.classList.remove('hidden');
+                return;
+            }
+
+            const result = auth.register(name, email, password);
+
+            if (result.success) {
+                // Redirect to account dashboard
+                window.location.href = 'account.html';
+            } else {
+                errorMsg.textContent = result.message;
+                errorDiv.classList.remove('hidden');
+            }
+        });
+    });
+  </script>
+</body>
+</html>

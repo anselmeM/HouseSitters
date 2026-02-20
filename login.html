@@ -4,10 +4,9 @@
   <meta charset="utf-8"/>
   <meta name="referrer" content="strict-origin-when-cross-origin"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta name="description" content="Thank you for your order."/>
-  <title>Order Confirmed - Modern Furniture &amp; Home Decor</title>
+  <meta name="description" content="Login to your Furni account to track orders and manage your profile."/>
+  <title>Login - Modern Furniture &amp; Home Decor</title>
   <link href="css/style.css" rel="stylesheet"/>
-  <script src="js/products-data.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/wishlist.js"></script>
   <script src="js/auth.js"></script>
@@ -17,10 +16,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
   <style>
-      .material-icons-outlined {
-          font-size: inherit;
-      }
-      #cart-toast { transition: opacity 0.3s ease-in-out; }
+      .material-icons-outlined { font-size: inherit; }
+      #auth-toast { transition: opacity 0.3s ease-in-out; }
   </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
@@ -39,23 +36,16 @@
           </nav>
         </div>
         <div class="flex-1 max-w-sm mx-8 hidden lg:block">
-          <div class="relative">
-            <span class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
-            <input class="w-full rounded-full border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 py-2.5 pl-10 pr-4 text-sm focus:border-primary focus:ring-primary dark:focus:border-primary dark:focus:ring-primary" placeholder="What are you looking for?" type="text" aria-label="Search products"/>
-            <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" aria-label="Search by image" title="Search by image">
-              <span class="material-icons-outlined">photo_camera</span>
-            </button>
-          </div>
+            <!-- Search bar omitted for simplicity on login page -->
         </div>
         <div class="flex items-center space-x-4 text-xl text-gray-600 dark:text-gray-400">
-          <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="login.html" aria-label="Account" title="Account"><span class="material-icons-outlined">person_outline</span></a>
-<a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="wishlist.html" aria-label="Favorites" title="Favorites"><span class="material-icons-outlined">favorite_border</span></a>
+          <a class="text-primary hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="login.html" aria-label="Account" title="Account"><span class="material-icons-outlined">person</span></a>
+          <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="wishlist.html" aria-label="Favorites" title="Favorites"><span class="material-icons-outlined">favorite_border</span></a>
           <a class="hover:text-primary dark:hover:text-primary transition-colors rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-shadow" href="cart.html" aria-label="Shopping cart" title="Shopping cart">
               <span class="material-icons-outlined">shopping_cart</span>
           </a>
         </div>
       </div>
-
       <!-- Mobile Menu -->
       <div id="mobile-menu" class="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-800 shadow-lg rounded-b-lg overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 invisible transform origin-top z-40">
         <nav class="flex flex-col p-6 space-y-4">
@@ -66,14 +56,61 @@
       </div>
     </header>
 
-    <main class="py-20 text-center">
-      <div class="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-8">
-          <span class="material-icons-outlined text-5xl text-green-600">check_circle</span>
+    <main class="py-12 flex justify-center">
+      <div class="w-full max-w-md bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md border border-gray-100 dark:border-gray-700">
+        <h1 class="text-3xl font-bold mb-6 text-center">Login</h1>
+
+        <form id="login-form" class="space-y-6">
+          <div id="login-error" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+              <span class="block sm:inline" id="error-message"></span>
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email Address</label>
+            <input type="email" id="email" name="email" required class="w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-primary focus:ring-primary dark:bg-gray-700 dark:text-white" autocomplete="email">
+          </div>
+          <div>
+            <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Password</label>
+            <input type="password" id="password" name="password" required class="w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-primary focus:ring-primary dark:bg-gray-700 dark:text-white" autocomplete="current-password">
+          </div>
+
+          <button type="submit" class="w-full bg-primary text-white font-bold py-3 rounded-md hover:bg-orange-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white">Sign In</button>
+        </form>
+
+        <p class="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
+            Don't have an account? <a href="register.html" class="text-primary hover:underline font-medium">Register here</a>
+        </p>
       </div>
-      <h1 class="text-4xl font-bold mb-4">Thank You!</h1>
-      <p class="text-xl text-gray-600 dark:text-gray-400 mb-8">Your order has been placed successfully.</p>
-      <a href="products.html" class="inline-block bg-primary text-white font-semibold py-3 px-8 rounded-md hover:bg-orange-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white">Continue Shopping</a>
     </main>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        cart.init();
+        wishlist.init();
+
+        const form = document.getElementById('login-form');
+        const errorDiv = document.getElementById('login-error');
+        const errorMsg = document.getElementById('error-message');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const result = auth.login(email, password);
+
+            if (result.success) {
+                // Check for redirect param
+                const urlParams = new URLSearchParams(window.location.search);
+                const redirect = urlParams.get('redirect') || 'account.html';
+                window.location.href = redirect;
+            } else {
+                errorMsg.textContent = result.message;
+                errorDiv.classList.remove('hidden');
+            }
+        });
+    });
+  </script>
 </body>
 </html>
