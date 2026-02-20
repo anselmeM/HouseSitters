@@ -188,6 +188,37 @@
             btn.disabled = true;
             btn.textContent = 'Processing...';
 
+            // Create Order Object
+            const orderData = {
+                id: Date.now().toString(),
+                date: new Date().toLocaleDateString(),
+                total: total,
+                status: 'Processing',
+                items: cartItems.map(item => {
+                    const p = products.find(prod => prod.id === item.id);
+                    return {
+                        id: item.id,
+                        name: p ? p.name : 'Unknown Product',
+                        price: p ? p.price : 0,
+                        quantity: item.quantity,
+                        image: p ? p.image : ''
+                    };
+                }),
+                shippingAddress: {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    address: document.getElementById('address').value,
+                    city: document.getElementById('city').value,
+                    zip: document.getElementById('zip').value
+                },
+                userId: user ? user.email : null // Associate with user if logged in
+            };
+
+            // Save to LocalStorage
+            const existingOrders = JSON.parse(localStorage.getItem('furni_orders') || '[]');
+            existingOrders.push(orderData);
+            localStorage.setItem('furni_orders', JSON.stringify(existingOrders));
+
             setTimeout(() => {
                 cart.clearCart();
                 window.location.href = 'success.html';

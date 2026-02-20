@@ -115,6 +115,74 @@
             document.getElementById('user-email').textContent = user.email;
         }
 
+        // Load Orders
+        const ordersContainer = document.getElementById('orders-container');
+        const allOrders = JSON.parse(localStorage.getItem('furni_orders') || '[]');
+
+        // Filter orders for current user or show all if not associated (legacy/guest)
+        // For this demo, we'll show orders associated with the user OR orders with no userId (guest checkout in same browser)
+        const userEmail = user ? user.email : null;
+        const userOrders = allOrders.filter(order => (userEmail && order.userId === userEmail) || !order.userId).reverse(); // Newest first
+
+        if (userOrders.length > 0) {
+            ordersContainer.innerHTML = ''; // Clear placeholder
+
+            userOrders.forEach(order => {
+                const orderEl = document.createElement('div');
+                orderEl.className = 'bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden';
+
+                const date = order.date || 'Unknown Date';
+                const total = typeof order.total === 'number' ? order.total.toFixed(2) : order.total;
+                const status = order.status || 'Processing';
+                const statusColor = status === 'Delivered' ? 'text-green-600 bg-green-50 dark:bg-green-900/20' : 'text-blue-600 bg-blue-50 dark:bg-blue-900/20';
+
+                let itemsHtml = '';
+                if (order.items && order.items.length > 0) {
+                    itemsHtml = order.items.map(item => `
+                        <div class="flex items-center space-x-4 py-4 border-b border-gray-100 dark:border-gray-700 last:border-0">
+                            <div class="w-16 h-16 bg-gray-100 rounded-md overflow-hidden flex-shrink-0">
+                                <img src="${item.image || 'https://via.placeholder.com/64'}" alt="${item.name}" class="w-full h-full object-cover">
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-medium text-gray-900 dark:text-white">${item.name}</h4>
+                                <p class="text-sm text-gray-500">Qty: ${item.quantity}</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-medium">$${(item.price * item.quantity).toFixed(2)}</p>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+
+                orderEl.innerHTML = `
+                    <div class="p-4 bg-gray-50 dark:bg-gray-700/50 border-b border-gray-100 dark:border-gray-700 flex justify-between items-center flex-wrap gap-4">
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase font-semibold">Order Placed</p>
+                            <p class="font-medium">${date}</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase font-semibold">Total</p>
+                            <p class="font-medium">$${total}</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase font-semibold">Order ID</p>
+                            <p class="font-medium">#${order.id}</p>
+                        </div>
+                        <div>
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${statusColor}">
+                                ${status}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        ${itemsHtml}
+                    </div>
+                `;
+
+                ordersContainer.appendChild(orderEl);
+            });
+        }
+
         document.getElementById('logout-btn').addEventListener('click', () => {
             auth.logout();
         });
