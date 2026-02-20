@@ -114,7 +114,7 @@ const products = [
     id: "industrial-lamp",
     name: "Industrial Floor Lamp",
     price: 89.00,
-    image: "https://placehold.co/600x400?text=Lighting",
+    image: "https://images.unsplash.com/photo-1648083411102-bcac221d3bc2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     description: "Illuminate your space with this striking industrial floor lamp. Featuring a metal shade and adjustable arm, it combines form and function seamlessly.",
     category: "Lighting",
     collections: ["Lighting", "Industrial"]

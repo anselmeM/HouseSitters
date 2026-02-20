@@ -6,41 +6,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const collectionFilter = urlParams.get('collection');
     const categoryFilter = urlParams.get('category');
     const searchFilter = urlParams.get('search');
+    const pageTitle = document.querySelector('h1.text-4xl.font-bold.mb-8');
 
     let filteredProducts = products;
 
     if (collectionFilter) {
-      filteredProducts = filteredProducts.filter(p => p.collections && p.collections.includes(collectionFilter));
-      const pageTitle = document.querySelector('h1.text-4xl.font-bold.mb-8');
+      const lowerCollection = collectionFilter.toLowerCase();
+      filteredProducts = filteredProducts.filter(p =>
+        p.collections && p.collections.some(c => c.toLowerCase() === lowerCollection)
+      );
       if (pageTitle) pageTitle.textContent = `${collectionFilter} Collection`;
     }
 
     if (categoryFilter) {
-       filteredProducts = filteredProducts.filter(p => p.category === categoryFilter);
-       const pageTitle = document.querySelector('h1.text-4xl.font-bold.mb-8');
-       if (pageTitle) pageTitle.textContent = categoryFilter;
+      const lowerCategory = categoryFilter.toLowerCase();
+      filteredProducts = filteredProducts.filter(p =>
+        p.category && p.category.toLowerCase() === lowerCategory
+      );
+      if (pageTitle) pageTitle.textContent = categoryFilter;
     }
 
     if (searchFilter) {
-        const term = searchFilter.toLowerCase();
-        filteredProducts = filteredProducts.filter(p =>
-            p.name.toLowerCase().includes(term) ||
-            (p.description && p.description.toLowerCase().includes(term))
-        );
-        const pageTitle = document.querySelector('h1.text-4xl.font-bold.mb-8');
-        if (pageTitle) pageTitle.textContent = `Search results for "${searchFilter}"`;
+      const term = searchFilter.toLowerCase();
+      filteredProducts = filteredProducts.filter(p =>
+        p.name.toLowerCase().includes(term) ||
+        (p.description && p.description.toLowerCase().includes(term))
+      );
+      if (pageTitle) pageTitle.textContent = `Search results for "${searchFilter}"`;
     }
 
     if (filteredProducts.length === 0) {
-        productsGrid.innerHTML = `<p class="col-span-full text-center text-gray-500 text-xl py-12">No products found.</p>`;
+      productsGrid.innerHTML = `<p class="col-span-full text-center text-gray-500 text-xl py-12">No products found.</p>`;
     } else {
-        productsGrid.innerHTML = filteredProducts.map(product => {
-          // Determine if original price should be shown
-          const priceDisplay = product.originalPrice
-            ? `<span class="text-sm text-gray-500 line-through mr-2">$${product.originalPrice.toFixed(2)}</span>$${product.price.toFixed(2)}`
-            : `$${product.price.toFixed(2)}`;
+      productsGrid.innerHTML = filteredProducts.map(product => {
+        // Determine if original price should be shown
+        const priceDisplay = product.originalPrice
+          ? `<span class="text-sm text-gray-500 line-through mr-2">$${product.originalPrice.toFixed(2)}</span>$${product.price.toFixed(2)}`
+          : `$${product.price.toFixed(2)}`;
 
-          return `
+        return `
             <div class="group">
               <div class="relative rounded-lg overflow-hidden aspect-square mb-4">
                 <a href="product.html?id=${product.id}">
@@ -59,12 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
             </div>
           `;
-        }).join('');
+      }).join('');
     }
 
     // Re-initialize wishlist buttons to set correct state (filled/outline)
     if (typeof wishlist !== 'undefined' && wishlist.updateWishlistButtons) {
-        wishlist.updateWishlistButtons();
+      wishlist.updateWishlistButtons();
     }
   }
 });
