@@ -111,11 +111,11 @@
             if (!product) return;
 
             const itemEl = document.createElement('div');
-            itemEl.className = 'bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden group relative';
+            itemEl.className = 'wishlist-item bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden group relative';
             itemEl.innerHTML = `
                 <div class="relative aspect-square overflow-hidden">
                     <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                    <button type="button" aria-label="Remove form wishlist" onclick="removeFromWishlist('${product.id}')" class="absolute top-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md hover:text-red-500 transition-colors z-10">
+                    <button type="button" aria-label="Remove from wishlist" onclick="removeFromWishlist('${product.id}')" class="absolute top-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md hover:text-red-500 transition-colors z-10">
                         <span class="material-icons-outlined">close</span>
                     </button>
                 </div>

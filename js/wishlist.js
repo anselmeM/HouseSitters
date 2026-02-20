@@ -72,15 +72,19 @@ const wishlist = {
         if (productId) {
             const isIn = this.isInWishlist(productId);
             const icon = button.querySelector('.material-icons-outlined');
+            const label = button.querySelector('.wishlist-text');
+
             if (icon) {
                 if (isIn) {
                     icon.textContent = 'favorite'; // Filled heart
                     icon.classList.add('text-red-500');
                     button.setAttribute('aria-label', 'Remove from wishlist');
+                    if (label) label.textContent = 'In Wishlist';
                 } else {
                     icon.textContent = 'favorite_border'; // Outlined heart
                     icon.classList.remove('text-red-500');
                     button.setAttribute('aria-label', 'Add to wishlist');
+                    if (label) label.textContent = 'Add to Wishlist';
                 }
             }
         }
