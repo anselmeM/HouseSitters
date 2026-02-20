@@ -153,10 +153,16 @@
 
             const itemEl = document.createElement('div');
             itemEl.className = 'flex justify-between text-sm';
-            itemEl.innerHTML = `
-                <span>${product.name} x ${item.quantity}</span>
-                <span>$${itemTotal.toFixed(2)}</span>
-            `;
+
+            const nameSpan = document.createElement('span');
+            nameSpan.textContent = `${product.name} x ${item.quantity}`;
+
+            const priceSpan = document.createElement('span');
+            priceSpan.textContent = `$${itemTotal.toFixed(2)}`;
+
+            itemEl.appendChild(nameSpan);
+            itemEl.appendChild(priceSpan);
+
             itemsContainer.appendChild(itemEl);
         });
 

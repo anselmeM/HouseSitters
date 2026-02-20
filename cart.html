@@ -141,28 +141,89 @@
             const itemEl = document.createElement('div');
             itemEl.className = 'flex items-center bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700';
             itemEl.style.cssText = "flex-wrap: wrap; gap: 1rem;";
-            itemEl.innerHTML = `
-                <div class="flex-shrink-0 overflow-hidden rounded-md" style="width: 6rem; height: 6rem;">
-                    <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover">
-                </div>
-                <div class="flex-1 ml-4 text-left">
-                    <h3 class="font-semibold text-lg"><a href="product.html?id=${product.id}" class="hover:text-primary transition-colors">${product.name}</a></h3>
-                    <p class="text-gray-600 dark:text-gray-400">$${product.price.toFixed(2)}</p>
-                </div>
-                <div class="flex items-center space-x-4 ml-4">
-                    <div class="flex items-center border border-gray-300 dark:border-gray-600 rounded-md">
-                        <button type="button" class="px-3 py-1 text-gray-600 dark:text-gray-400 hover:text-primary focus:outline-none" onclick="updateItemQuantity('${item.id}', ${item.quantity - 1})">-</button>
-                        <input type="number" min="1" value="${item.quantity}" class="w-12 text-center border-none bg-transparent focus:ring-0 p-1" onchange="updateItemQuantity('${item.id}', this.value)">
-                        <button type="button" class="px-3 py-1 text-gray-600 dark:text-gray-400 hover:text-primary focus:outline-none" onclick="updateItemQuantity('${item.id}', ${item.quantity + 1})">+</button>
-                    </div>
-                    <button type="button" class="text-red-500 hover:text-red-700 focus:outline-none" onclick="removeItemFromCart('${item.id}')" aria-label="Remove ${product.name}">
-                        <span class="material-icons-outlined">delete</span>
-                    </button>
-                </div>
-                <div class="font-bold text-lg ml-8 text-right w-24">
-                    $${itemTotal.toFixed(2)}
-                </div>
-            `;
+
+            // Image Container
+            const imgContainer = document.createElement('div');
+            imgContainer.className = 'flex-shrink-0 overflow-hidden rounded-md';
+            imgContainer.style.cssText = 'width: 6rem; height: 6rem;';
+            const img = document.createElement('img');
+            img.src = product.image;
+            img.alt = product.name;
+            img.className = 'w-full h-full object-cover';
+            imgContainer.appendChild(img);
+
+            // Product Details
+            const detailsDiv = document.createElement('div');
+            detailsDiv.className = 'flex-1 ml-4 text-left';
+            const h3 = document.createElement('h3');
+            h3.className = 'font-semibold text-lg';
+            const link = document.createElement('a');
+            link.href = `product.html?id=${product.id}`;
+            link.className = 'hover:text-primary transition-colors';
+            link.textContent = product.name;
+            h3.appendChild(link);
+            const priceP = document.createElement('p');
+            priceP.className = 'text-gray-600 dark:text-gray-400';
+            priceP.textContent = `$${product.price.toFixed(2)}`;
+            detailsDiv.appendChild(h3);
+            detailsDiv.appendChild(priceP);
+
+            // Quantity and Remove Controls
+            const controlsDiv = document.createElement('div');
+            controlsDiv.className = 'flex items-center space-x-4 ml-4';
+
+            // Quantity Input Group
+            const qtyGroup = document.createElement('div');
+            qtyGroup.className = 'flex items-center border border-gray-300 dark:border-gray-600 rounded-md';
+
+            const decBtn = document.createElement('button');
+            decBtn.type = 'button';
+            decBtn.className = 'px-3 py-1 text-gray-600 dark:text-gray-400 hover:text-primary focus:outline-none';
+            decBtn.textContent = '-';
+            decBtn.onclick = () => updateItemQuantity(item.id, item.quantity - 1);
+
+            const qtyInput = document.createElement('input');
+            qtyInput.type = 'number';
+            qtyInput.min = '1';
+            qtyInput.value = item.quantity;
+            qtyInput.className = 'w-12 text-center border-none bg-transparent focus:ring-0 p-1';
+            qtyInput.onchange = (e) => updateItemQuantity(item.id, e.target.value);
+
+            const incBtn = document.createElement('button');
+            incBtn.type = 'button';
+            incBtn.className = 'px-3 py-1 text-gray-600 dark:text-gray-400 hover:text-primary focus:outline-none';
+            incBtn.textContent = '+';
+            incBtn.onclick = () => updateItemQuantity(item.id, item.quantity + 1);
+
+            qtyGroup.appendChild(decBtn);
+            qtyGroup.appendChild(qtyInput);
+            qtyGroup.appendChild(incBtn);
+
+            // Remove Button
+            const removeBtn = document.createElement('button');
+            removeBtn.type = 'button';
+            removeBtn.className = 'text-red-500 hover:text-red-700 focus:outline-none';
+            removeBtn.ariaLabel = `Remove ${product.name}`;
+            removeBtn.onclick = () => removeItemFromCart(item.id);
+            const deleteIcon = document.createElement('span');
+            deleteIcon.className = 'material-icons-outlined';
+            deleteIcon.textContent = 'delete';
+            removeBtn.appendChild(deleteIcon);
+
+            controlsDiv.appendChild(qtyGroup);
+            controlsDiv.appendChild(removeBtn);
+
+            // Item Total
+            const totalDiv = document.createElement('div');
+            totalDiv.className = 'font-bold text-lg ml-8 text-right w-24';
+            totalDiv.textContent = `$${itemTotal.toFixed(2)}`;
+
+            // Append all to main item element
+            itemEl.appendChild(imgContainer);
+            itemEl.appendChild(detailsDiv);
+            itemEl.appendChild(controlsDiv);
+            itemEl.appendChild(totalDiv);
+
             container.appendChild(itemEl);
         });
 

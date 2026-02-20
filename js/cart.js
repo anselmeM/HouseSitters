@@ -32,11 +32,12 @@ const cart = {
     const items = this.getItems();
     const item = items.find(item => item.id === productId);
     if (item) {
-      item.quantity = parseInt(quantity);
-      if (item.quantity <= 0) {
+      const newQuantity = parseInt(quantity, 10);
+      if (isNaN(newQuantity) || newQuantity <= 0) {
         this.removeItem(productId);
         return;
       }
+      item.quantity = newQuantity;
       localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
       this.updateCartCount();
     }
