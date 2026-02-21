@@ -118,6 +118,33 @@ const products = [
     description: "Illuminate your space with this striking industrial floor lamp. Featuring a metal shade and adjustable arm, it combines form and function seamlessly.",
     category: "Lighting",
     collections: ["Lighting", "Industrial"]
+  },
+  {
+    id: "modern-brass-chandelier",
+    name: "Modern Brass Chandelier",
+    price: 450.00,
+    image: "images/modern-brass-chandelier.jpg",
+    description: "A stunning modern brass chandelier that adds a touch of luxury to any dining room or entryway.",
+    category: "Lighting",
+    collections: ["Lighting", "Luxury"]
+  },
+  {
+    id: "globe-chandelier",
+    name: "Multi-Globe Chandelier",
+    price: 599.00,
+    image: "images/multi-globe-chandelier.jpg",
+    description: "This multi-globe chandelier features a contemporary design with multiple light sources for ample illumination.",
+    category: "Lighting",
+    collections: ["Lighting", "Modern"]
+  },
+  {
+    id: "geometric-pendant",
+    name: "Geometric Glass Pendant",
+    price: 229.00,
+    image: "images/geometric-glass-pendant.png",
+    description: "A geometric glass pendant light that combines modern shape with classic materials for a unique look.",
+    category: "Lighting",
+    collections: ["Lighting", "Minimalist"]
   }
 ];
 
