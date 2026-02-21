@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; img-src 'self' https://lh3.googleusercontent.com https://images.unsplash.com https://placehold.co data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self';">
   <meta name="referrer" content="strict-origin-when-cross-origin"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <meta name="description" content="View detailed product information and specifications for our modern furniture collection. Find dimensions, materials, and pricing."/>
@@ -10,6 +11,7 @@
   <script src="js/products-data.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/wishlist.js"></script>
+  <script src="js/product-page.js" defer></script>
   <script src="js/main.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -103,60 +105,6 @@
     </main>
   </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const productId = urlParams.get('id');
-      const product = products.find(p => p.id === productId);
-
-      const container = document.getElementById('product-container');
-      const loading = document.getElementById('loading');
-      const notFound = document.getElementById('not-found');
-
-      if (product) {
-        document.title = `${product.name} - Modern Furniture`;
-        document.querySelector('meta[name="description"]').setAttribute("content", product.description);
-        document.getElementById('product-name').textContent = product.name;
-        document.getElementById('product-image').src = product.image;
-        document.getElementById('product-image').alt = product.name;
-        document.getElementById('product-description').textContent = product.description;
-
-        const priceEl = document.getElementById('product-price');
-        const originalPriceEl = document.getElementById('product-original-price');
-
-        if (product.originalPrice) {
-             priceEl.textContent = `$${product.price.toFixed(2)}`;
-             originalPriceEl.textContent = `$${product.originalPrice.toFixed(2)}`;
-             originalPriceEl.classList.remove('hidden');
-        } else {
-             priceEl.textContent = `$${product.price.toFixed(2)}`;
-        }
-
-        const btn = document.getElementById('add-to-cart-btn');
-        btn.onclick = () => {
-            window.addToCart(product.id);
-            cart.showToast(`Added ${product.name} to cart!`);
-        };
-
-        const wishlistBtn = document.getElementById('add-to-wishlist-btn');
-        wishlistBtn.setAttribute('data-product-id', product.id);
-        wishlistBtn.onclick = () => {
-             wishlist.toggleItem(product.id);
-        };
-        // Update initial state
-        wishlist.updateWishlistButtons();
-
-        loading.classList.add('hidden');
-        container.classList.remove('hidden');
-      } else {
-        loading.classList.add('hidden');
-        notFound.classList.remove('hidden');
-      }
-
-      // Initialize cart badge
-      cart.init();
-    });
-  </script>
 <div id="site-footer"></div>
 </body>
 </html>
