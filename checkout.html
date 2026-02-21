@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; img-src 'self' https://lh3.googleusercontent.com https://images.unsplash.com https://placehold.co data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self';">
   <meta name="referrer" content="strict-origin-when-cross-origin"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <meta name="description" content="Complete your purchase securely."/>
@@ -10,6 +11,7 @@
   <script src="js/products-data.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/wishlist.js"></script>
+  <script src="js/checkout-page.js" defer></script>
   <script src="js/main.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -133,55 +135,6 @@
     </main>
   </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const cartItems = cart.getItems();
-        const itemsContainer = document.getElementById('order-items');
-        const totalEl = document.getElementById('order-total');
-        let total = 0;
-
-        if (cartItems.length === 0) {
-            window.location.href = 'cart.html'; // Redirect to cart if empty
-            return;
-        }
-
-        cartItems.forEach(item => {
-            const product = products.find(p => p.id === item.id);
-            if (!product) return;
-
-            const itemTotal = product.price * item.quantity;
-            total += itemTotal;
-
-            const itemEl = document.createElement('div');
-            itemEl.className = 'flex justify-between text-sm';
-
-            const nameSpan = document.createElement('span');
-            nameSpan.textContent = `${product.name} x ${item.quantity}`;
-
-            const priceSpan = document.createElement('span');
-            priceSpan.textContent = `$${itemTotal.toFixed(2)}`;
-
-            itemEl.appendChild(nameSpan);
-            itemEl.appendChild(priceSpan);
-            itemsContainer.appendChild(itemEl);
-        });
-
-        totalEl.textContent = `$${total.toFixed(2)}`;
-
-        document.getElementById('checkout-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Simulate processing
-            const btn = e.target.querySelector('button[type="submit"]');
-            btn.disabled = true;
-            btn.textContent = 'Processing...';
-
-            setTimeout(() => {
-                cart.clearCart();
-                window.location.href = 'success.html';
-            }, 1500);
-        });
-    });
-  </script>
 <div id="site-footer"></div>
 </body>
 </html>

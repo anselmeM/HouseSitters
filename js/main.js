@@ -64,7 +64,7 @@ function injectFooter() {
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
                     <p class="text-gray-400 mb-4">Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>
-                    <form class="flex gap-2" onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
+                    <form class="flex gap-2" id="newsletter-form">
                         <input type="email" placeholder="Enter your email" class="w-full rounded-md text-white focus:ring-primary focus:border-primary px-4 py-2" required style="background-color: #1f2937; border-color: #374151;">
                         <button type="submit" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-orange-700 transition-colors">
                             <span class="material-icons-outlined">send</span>
@@ -78,6 +78,14 @@ function injectFooter() {
         </div>
     </footer>
     `;
+
+    const form = document.getElementById('newsletter-form');
+    if (form) {
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            alert('Thanks for subscribing!');
+        });
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {

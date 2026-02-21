@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; img-src 'self' https://lh3.googleusercontent.com https://images.unsplash.com https://placehold.co data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self';">
   <meta name="referrer" content="strict-origin-when-cross-origin"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <meta name="description" content="View your saved items and add them to your cart later."/>
@@ -10,6 +11,7 @@
   <script src="js/products-data.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/wishlist.js"></script>
+  <script src="js/wishlist-page.js" defer></script>
   <script src="js/main.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -82,65 +84,6 @@
     </main>
   </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        renderWishlist();
-        wishlist.init(); // Initialize badge count
-        cart.init(); // Initialize cart badge count
-    });
-
-    function renderWishlist() {
-        const wishlistItems = wishlist.getItems(); // Array of IDs
-        const container = document.getElementById('wishlist-items');
-        const emptyMessage = document.getElementById('empty-wishlist-message');
-        const wishlistContent = document.getElementById('wishlist-content');
-
-        container.innerHTML = '';
-
-        if (wishlistItems.length === 0) {
-            emptyMessage.classList.remove('hidden');
-            wishlistContent.classList.add('hidden');
-            return;
-        }
-
-        emptyMessage.classList.add('hidden');
-        wishlistContent.classList.remove('hidden');
-
-        wishlistItems.forEach(productId => {
-            const product = products.find(p => p.id === productId);
-            if (!product) return;
-
-            const itemEl = document.createElement('div');
-            itemEl.className = 'bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden group relative';
-            itemEl.innerHTML = `
-                <div class="relative aspect-square overflow-hidden">
-                    <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                    <button type="button" aria-label="Remove form wishlist" onclick="removeFromWishlist('${product.id}')" class="absolute top-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md hover:text-red-500 transition-colors z-10">
-                        <span class="material-icons-outlined">close</span>
-                    </button>
-                </div>
-                <div class="p-4">
-                    <h3 class="font-semibold text-lg mb-2"><a href="product.html?id=${product.id}" class="hover:text-primary transition-colors">${product.name}</a></h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4">$${product.price.toFixed(2)}</p>
-                    <button onclick="addToCart('${product.id}')" class="w-full bg-primary text-white font-bold py-2 px-4 rounded hover:bg-orange-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
-                        Add to Cart
-                    </button>
-                </div>
-            `;
-            container.appendChild(itemEl);
-        });
-    }
-
-    // Expose functions for inline onclick handlers
-    window.removeFromWishlist = function(id) {
-        wishlist.removeItem(id);
-        renderWishlist();
-    };
-
-    window.addToCart = function(id) {
-        cart.addItem(id);
-    };
-  </script>
 <div id="site-footer"></div>
 </body>
 </html>
