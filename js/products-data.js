@@ -121,6 +121,30 @@ const products = [
     category: "Lighting",
     image: "images/glass-pendant.jpg",
     description: "Minimalist glass pendant light perfect for modern kitchens and dining areas. The clear glass shade allows for maximum light distribution."
+  },
+  {
+    id: "modern-outdoor-chair",
+    name: "Modern Outdoor Chair",
+    price: 129.00,
+    category: "Outdoor",
+    image: "images/modern-outdoor-chair.webp",
+    description: "A comfortable and stylish chair for your outdoor patio. Weather-resistant and easy to clean."
+  },
+  {
+    id: "garden-lounge-set",
+    name: "Garden Lounge Set",
+    price: 299.00,
+    category: "Outdoor",
+    image: "images/garden-lounge-set.webp",
+    description: "Relax in style with this complete garden lounge set. Includes comfortable cushions and a sturdy frame."
+  },
+  {
+    id: "patio-dining-table",
+    name: "Patio Dining Table",
+    price: 199.00,
+    category: "Outdoor",
+    image: "images/patio-dining-table.jpg",
+    description: "Perfect for outdoor dining and entertaining guests. Durable and spacious."
   }
 ];
 
