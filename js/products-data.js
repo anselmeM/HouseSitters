@@ -127,7 +127,7 @@ const products = [
     name: "Modern Outdoor Chair",
     price: 129.00,
     category: "Outdoor",
-    image: "images/modern-outdoor-chair.webp",
+    image: "https://images.unsplash.com/photo-1617850687395-620757feb1f3?fm=jpg&q=60&w=800&auto=format&fit=crop",
     description: "A comfortable and stylish chair for your outdoor patio. Weather-resistant and easy to clean."
   },
   {
@@ -135,15 +135,15 @@ const products = [
     name: "Garden Lounge Set",
     price: 299.00,
     category: "Outdoor",
-    image: "images/garden-lounge-set.webp",
-    description: "Relax in style with this complete garden lounge set. Includes comfortable cushions and a sturdy frame."
+    image: "https://images.unsplash.com/photo-1715090576114-c07384af2069?fm=jpg&q=60&w=800&auto=format&fit=crop",
+    description: "Relax in style with this complete garden lounge set. Includes comfortable cushions and a sturdy frame. Perfect for your outdoor space."
   },
   {
     id: "patio-dining-table",
     name: "Patio Dining Table",
     price: 199.00,
     category: "Outdoor",
-    image: "images/patio-dining-table.jpg",
+    image: "https://images.unsplash.com/photo-1633330948542-0b3bdeefcdb3?fm=jpg&q=60&w=800&auto=format&fit=crop",
     description: "Perfect for outdoor dining and entertaining guests. Durable and spacious."
   }
 ];
