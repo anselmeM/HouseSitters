@@ -50,23 +50,19 @@ def run():
 
         # Check for XSS execution
         print("Checking for XSS execution...")
-        page.wait_for_timeout(1000)
+        # Wait for products to be rendered
+        page.wait_for_selector('#products-grid .group')
+
         is_hacked = page.evaluate("() => window.hacked === true")
 
-        if is_hacked:
-            print("VULNERABILITY CONFIRMED: XSS payload executed!")
-        else:
-            print("Success: XSS payload NOT executed.")
+        assert not is_hacked, "VULNERABILITY CONFIRMED: XSS payload executed!"
+        print("Success: XSS payload NOT executed.")
 
         # Check if Numeric ID product is rendered (verifies no crash)
         print("Checking if numeric ID product rendered...")
         numeric_product = page.get_by_text("Numeric ID Product")
-        if numeric_product.count() > 0:
-            print("Success: Numeric ID product rendered correctly.")
-        else:
-            print("FAILURE: Numeric ID product NOT rendered (possible crash).")
-            # Check for console errors
-            page.on("console", lambda msg: print(f"Console error: {msg.text}"))
+        expect(numeric_product).to_have_count(1)
+        print("Success: Numeric ID product rendered correctly.")
 
         browser.close()
 
