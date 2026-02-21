@@ -1,8 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
   const productsGrid = document.getElementById('products-grid');
+  const pageTitle = document.querySelector('h1');
 
   if (productsGrid && typeof products !== 'undefined') {
-    productsGrid.innerHTML = products.map(product => {
+    // Parse URL params
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+    const search = urlParams.get('search');
+
+    let filteredProducts = products;
+
+    if (category) {
+        filteredProducts = products.filter(p => p.category === category);
+        if (pageTitle) pageTitle.textContent = category;
+    }
+
+    if (search) {
+        const term = search.toLowerCase();
+        filteredProducts = products.filter(p =>
+            p.name.toLowerCase().includes(term) ||
+            (p.description && p.description.toLowerCase().includes(term))
+        );
+        if (pageTitle) pageTitle.textContent = `Search results for "${search}"`;
+    }
+
+    if (filteredProducts.length === 0) {
+        productsGrid.innerHTML = '<p class="col-span-full text-center text-gray-500 text-xl py-12">No products found.</p>';
+        return;
+    }
+
+    productsGrid.innerHTML = filteredProducts.map(product => {
       // Determine if original price should be shown
       const priceDisplay = product.originalPrice
         ? `<span class="text-sm text-gray-500 line-through mr-2">$${product.originalPrice.toFixed(2)}</span>$${product.price.toFixed(2)}`

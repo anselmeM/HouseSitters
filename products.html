@@ -64,6 +64,17 @@
 </header>
 <main class="py-8">
 <h1 class="text-4xl font-bold mb-8">Our Products</h1>
+
+<!-- Category Filter -->
+<div class="flex flex-wrap gap-4 mb-8" id="category-filters">
+    <a href="products.html" class="px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 hover:border-primary hover:text-primary transition-colors">All</a>
+    <a href="products.html?category=Living Room" class="px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 hover:border-primary hover:text-primary transition-colors">Living Room</a>
+    <a href="products.html?category=Office" class="px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 hover:border-primary hover:text-primary transition-colors">Office</a>
+    <a href="products.html?category=Bedroom" class="px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 hover:border-primary hover:text-primary transition-colors">Bedroom</a>
+    <a href="products.html?category=Dining" class="px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 hover:border-primary hover:text-primary transition-colors">Dining</a>
+    <a href="products.html?category=Lighting" class="px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 hover:border-primary hover:text-primary transition-colors">Lighting</a>
+</div>
+
 <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
   <!-- Products will be dynamically inserted here by js/products.js -->
 </div>
