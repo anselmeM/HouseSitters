@@ -43,11 +43,11 @@ function renderCart() {
             </div>
             <div class="flex items-center space-x-4 ml-4">
                 <div class="flex items-center border border-gray-300 dark:border-gray-600 rounded-md">
-                    <button type="button" class="decrease-qty-btn px-3 py-1 text-gray-600 dark:text-gray-400 hover:text-primary focus:outline-none">-</button>
-                    <input type="number" min="1" value="${item.quantity}" class="qty-input w-12 text-center border-none bg-transparent focus:ring-0 p-1">
-                    <button type="button" class="increase-qty-btn px-3 py-1 text-gray-600 dark:text-gray-400 hover:text-primary focus:outline-none">+</button>
+                    <button type="button" aria-label="Decrease quantity of ${product.name}" class="decrease-qty-btn px-3 py-1 text-gray-600 dark:text-gray-400 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-l-md">-</button>
+                    <input type="number" min="1" value="${item.quantity}" aria-label="Quantity of ${product.name}" class="qty-input w-12 text-center border-none bg-transparent focus-visible:ring-2 focus-visible:ring-primary p-1">
+                    <button type="button" aria-label="Increase quantity of ${product.name}" class="increase-qty-btn px-3 py-1 text-gray-600 dark:text-gray-400 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-r-md">+</button>
                 </div>
-                <button type="button" class="remove-item-btn text-red-500 hover:text-red-700 focus:outline-none" aria-label="Remove ${product.name}">
+                <button type="button" class="remove-item-btn text-red-500 hover:text-red-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-full p-1" aria-label="Remove ${product.name} from cart">
                     <span class="material-icons-outlined">delete</span>
                 </button>
             </div>
