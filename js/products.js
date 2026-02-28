@@ -1,6 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
   const productsGrid = document.getElementById('products-grid');
 
+  // Simple HTML escaper
+  const escapeHTML = (str) => {
+    if (str == null) return '';
+    return String(str).replace(/[&<>'"]/g, tag => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+    }[tag]));
+  };
+
   if (productsGrid && typeof products !== 'undefined') {
     const urlParams = new URLSearchParams(window.location.search);
     const collectionFilter = urlParams.get('collection');
@@ -46,20 +58,24 @@ document.addEventListener('DOMContentLoaded', () => {
           const wishlistClass = inWishlist ? 'text-red-500' : 'text-gray-400';
           const wishlistLabel = inWishlist ? 'Remove from wishlist' : 'Add to wishlist';
 
+          const safeId = escapeHTML(product.id);
+          const safeName = escapeHTML(product.name);
+          const safeImage = escapeHTML(product.image);
+
           return `
             <div class="group">
               <div class="relative rounded-lg overflow-hidden aspect-square mb-4">
-                <a href="product.html?id=${product.id}">
-                  <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                <a href="product.html?id=${safeId}">
+                  <img src="${safeImage}" alt="${safeName}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
                 </a>
-                <button type="button" class="wishlist-toggle absolute top-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity focus:opacity-100 z-10" data-product-id="${product.id}" aria-label="${wishlistLabel}">
+                <button type="button" class="wishlist-toggle absolute top-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity focus:opacity-100 z-10" data-product-id="${safeId}" aria-label="${wishlistLabel}">
                   <span class="material-icons-outlined ${wishlistClass}">${wishlistIcon}</span>
                 </button>
-                <button type="button" aria-label="Add ${product.name} to cart" data-product-id="${product.id}" class="add-to-cart-btn absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity focus:opacity-100">
+                <button type="button" aria-label="Add ${safeName} to cart" data-product-id="${safeId}" class="add-to-cart-btn absolute bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity focus:opacity-100">
                   <span class="material-icons-outlined text-primary">add_shopping_cart</span>
                 </button>
               </div>
-              <a href="product.html?id=${product.id}"><h3 class="font-semibold text-lg hover:text-primary transition-colors">${product.name}</h3></a>
+              <a href="product.html?id=${safeId}"><h3 class="font-semibold text-lg hover:text-primary transition-colors">${safeName}</h3></a>
               <div class="flex items-center">
                 <p class="text-gray-600 dark:text-gray-400">${priceDisplay}</p>
               </div>
