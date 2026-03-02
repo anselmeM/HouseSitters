@@ -1,3 +1,13 @@
+
+// Security enhancement: escape HTML to prevent XSS
+function escapeHTML(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
 document.addEventListener('DOMContentLoaded', () => {
     renderCart();
 });
@@ -35,19 +45,19 @@ function renderCart() {
 
         itemEl.innerHTML = `
             <div class="flex-shrink-0 overflow-hidden rounded-md" style="width: 6rem; height: 6rem;">
-                <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover">
+                <img src="${escapeHTML(product.image)}" alt="${escapeHTML(product.name)}" class="w-full h-full object-cover">
             </div>
             <div class="flex-1 ml-4 text-left">
-                <h3 class="font-semibold text-lg"><a href="product.html?id=${product.id}" class="hover:text-primary transition-colors">${product.name}</a></h3>
+                <h3 class="font-semibold text-lg"><a href="product.html?id=${escapeHTML(product.id)}" class="hover:text-primary transition-colors">${escapeHTML(product.name)}</a></h3>
                 <p class="text-gray-600 dark:text-gray-400">$${product.price.toFixed(2)}</p>
             </div>
             <div class="flex items-center space-x-4 ml-4">
                 <div class="flex items-center border border-gray-300 dark:border-gray-600 rounded-md">
-                    <button type="button" aria-label="Decrease quantity of ${product.name}" class="decrease-qty-btn px-3 py-1 text-gray-600 dark:text-gray-400 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-l-md">-</button>
-                    <input type="number" min="1" value="${item.quantity}" aria-label="Quantity of ${product.name}" class="qty-input w-12 text-center border-none bg-transparent focus-visible:ring-2 focus-visible:ring-primary p-1">
-                    <button type="button" aria-label="Increase quantity of ${product.name}" class="increase-qty-btn px-3 py-1 text-gray-600 dark:text-gray-400 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-r-md">+</button>
+                    <button type="button" aria-label="Decrease quantity of ${escapeHTML(product.name)}" class="decrease-qty-btn px-3 py-1 text-gray-600 dark:text-gray-400 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-l-md">-</button>
+                    <input type="number" min="1" value="${item.quantity}" aria-label="Quantity of ${escapeHTML(product.name)}" class="qty-input w-12 text-center border-none bg-transparent focus-visible:ring-2 focus-visible:ring-primary p-1">
+                    <button type="button" aria-label="Increase quantity of ${escapeHTML(product.name)}" class="increase-qty-btn px-3 py-1 text-gray-600 dark:text-gray-400 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-r-md">+</button>
                 </div>
-                <button type="button" class="remove-item-btn text-red-500 hover:text-red-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-full p-1" aria-label="Remove ${product.name} from cart">
+                <button type="button" class="remove-item-btn text-red-500 hover:text-red-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-full p-1" aria-label="Remove ${escapeHTML(product.name)} from cart">
                     <span class="material-icons-outlined">delete</span>
                 </button>
             </div>
