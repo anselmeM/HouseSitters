@@ -67,10 +67,16 @@ const wishlist = {
     // We assume they have a data attribute 'data-product-id' or use onclick handlers we can target?
     // A better approach is to use a specific class for wishlist toggle buttons.
     const buttons = document.querySelectorAll('.wishlist-toggle');
+    if (buttons.length === 0) return;
+
+    // Fetch wishlist items once to avoid O(N) localStorage reads for each button
+    // Convert to strings for safe Set.has() comparison against DOM attributes
+    const wishlistItems = new Set(this.getItems().map(String));
+
     buttons.forEach(button => {
         const productId = button.getAttribute('data-product-id');
         if (productId) {
-            const isIn = this.isInWishlist(productId);
+            const isIn = wishlistItems.has(String(productId));
             const icon = button.querySelector('.material-icons-outlined');
             if (icon) {
                 if (isIn) {
