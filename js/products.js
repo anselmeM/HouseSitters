@@ -34,6 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (filteredProducts.length === 0) {
         productsGrid.innerHTML = `<p class="col-span-full text-center text-gray-500 text-xl py-12">No products found.</p>`;
     } else {
+        // Fetch wishlist items once to avoid O(N) localStorage reads during rendering
+        // Convert to strings for safe Set.has() comparison against DOM attributes and numeric IDs
+        const wishlistItems = typeof wishlist !== 'undefined' ? new Set(wishlist.getItems().map(String)) : new Set();
+
         productsGrid.innerHTML = filteredProducts.map(product => {
           // Determine if original price should be shown
           const priceDisplay = product.originalPrice
@@ -41,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             : `$${product.price.toFixed(2)}`;
 
           // Check wishlist state for initial render
-          const inWishlist = typeof wishlist !== 'undefined' && wishlist.isInWishlist(product.id);
+          const inWishlist = wishlistItems.has(String(product.id));
           const wishlistIcon = inWishlist ? 'favorite' : 'favorite_border';
           const wishlistClass = inWishlist ? 'text-red-500' : 'text-gray-400';
           const wishlistLabel = inWishlist ? 'Remove from wishlist' : 'Add to wishlist';
