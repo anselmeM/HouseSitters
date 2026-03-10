@@ -1,16 +1,3 @@
-function escapeHTML(str) {
-    return String(str).replace(/[&<>"']/g, function(match) {
-        const escape = {
-            '&': '&amp;',
-            '<': '&lt;',
-            '>': '&gt;',
-            '"': '&quot;',
-            "'": '&#39;'
-        };
-        return escape[match];
-    });
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     renderCart();
 });
