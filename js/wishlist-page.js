@@ -1,3 +1,16 @@
+function escapeHTML(str) {
+    return String(str).replace(/[&<>"']/g, function(match) {
+        const escape = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;'
+        };
+        return escape[match];
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     renderWishlist();
     if (typeof wishlist !== 'undefined') wishlist.init();
@@ -30,13 +43,13 @@ function renderWishlist() {
 
         itemEl.innerHTML = `
             <div class="relative aspect-square overflow-hidden">
-                <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                <img src="${escapeHTML(product.image)}" alt="${escapeHTML(product.name)}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
                 <button type="button" aria-label="Remove from wishlist" class="remove-wishlist-btn absolute top-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md hover:text-red-500 transition-colors z-10">
                     <span class="material-icons-outlined">close</span>
                 </button>
             </div>
             <div class="p-4">
-                <h3 class="font-semibold text-lg mb-2"><a href="product.html?id=${product.id}" class="hover:text-primary transition-colors">${product.name}</a></h3>
+                <h3 class="font-semibold text-lg mb-2"><a href="product.html?id=${escapeHTML(product.id)}" class="hover:text-primary transition-colors">${escapeHTML(product.name)}</a></h3>
                 <p class="text-gray-600 dark:text-gray-400">$${product.price.toFixed(2)}</p>
                 <button class="add-to-cart-btn w-full bg-primary text-white font-bold py-2 px-4 rounded hover:bg-orange-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
                     Add to Cart
