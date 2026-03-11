@@ -101,7 +101,3 @@ document.addEventListener('DOMContentLoaded', () => {
   cart.init();
 });
 
-// Expose global function for onclick handlers
-window.addToCart = function(id) {
-    cart.addItem(id);
-};

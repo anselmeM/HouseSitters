@@ -61,7 +61,7 @@ function renderWishlist() {
         removeBtn.addEventListener('click', () => removeFromWishlist(product.id));
 
         const addCartBtn = itemEl.querySelector('.add-to-cart-btn');
-        addCartBtn.addEventListener('click', () => addToCart(product.id));
+        addCartBtn.addEventListener('click', () => cart.addItem(product.id));
 
         container.appendChild(itemEl);
     });
@@ -70,8 +70,4 @@ function renderWishlist() {
 function removeFromWishlist(id) {
     wishlist.removeItem(id);
     renderWishlist();
-}
-
-function addToCart(id) {
-    cart.addItem(id);
 }
