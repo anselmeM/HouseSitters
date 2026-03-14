@@ -9,8 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+    // ⚡ Bolt Performance Optimization:
+    // Create an O(1) lookup map for products to avoid O(N*M) complexity in the rendering loop
+    // This reduces the time complexity from O(N * M) to O(N + M)
+    const productMap = products.reduce((acc, product) => {
+        acc[product.id] = product;
+        return acc;
+    }, {});
+
     cartItems.forEach(item => {
-        const product = products.find(p => p.id === item.id);
+        const product = productMap[item.id];
         if (!product) return;
 
         const itemTotal = product.price * item.quantity;
