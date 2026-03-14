@@ -34,8 +34,16 @@ function renderWishlist() {
     emptyMessage.classList.add('hidden');
     wishlistContent.classList.remove('hidden');
 
+    // ⚡ Bolt Performance Optimization:
+    // Create an O(1) lookup map for products to avoid O(N*M) complexity in the rendering loop
+    // This reduces the time complexity from O(N * M) to O(N + M)
+    const productMap = products.reduce((acc, product) => {
+        acc[product.id] = product;
+        return acc;
+    }, {});
+
     wishlistItems.forEach(productId => {
-        const product = products.find(p => p.id === productId);
+        const product = productMap[productId];
         if (!product) return;
 
         const itemEl = document.createElement('div');
